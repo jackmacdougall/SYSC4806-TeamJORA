@@ -1,8 +1,7 @@
-package Model;
+package springboot.Model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 //@Entity

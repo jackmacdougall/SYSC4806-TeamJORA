@@ -1,4 +1,4 @@
-package Application;
+package springboot.Application;
 
 public class ReportGenerator {
 }

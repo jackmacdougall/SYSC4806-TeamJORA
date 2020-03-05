@@ -1,23 +1,26 @@
-package Model;
+package springboot.Model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Student extends Person {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer id = null;
     private Integer studentNumber = null;
     private Boolean inGroup = false;
-    private Group group;
+
+    @ManyToOne
+    private StudentGroup group;
+
     public Student() {}
     public Student(String name, Integer studentNumber) {
         super(name, "student");
         this.studentNumber = studentNumber;
     }
 
-    public Student(String name, Integer studentNumber, Group group){
+    public Student(String name, Integer studentNumber, StudentGroup group){
         this(name, studentNumber);
         this.group = group;
         setInGroup();
@@ -31,11 +34,11 @@ public class Student extends Person {
         this.studentNumber = studentNumber;
     }
 
-    public void addToGroup(Group group){
+    public void addToGroup(StudentGroup group){
         this.group = group;
         group.addStudent(this);
     }
-    public void setGroup(Group group){
+    public void setGroup(StudentGroup group){
         this.group = group;
         setInGroup();
     }
