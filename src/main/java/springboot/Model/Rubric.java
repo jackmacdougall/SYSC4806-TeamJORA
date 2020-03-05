@@ -1,33 +1,33 @@
-package Model;
+package springboot.Model;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
 
-@Entity
+//@Entity
 public class Rubric {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     private Item item = null;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private HashSet<RubricValue> rubricValues;
+    @OneToMany
+    private List<RubricValue> rubricValues;
 
     public Rubric(){
-        this.rubricValues = new HashSet<RubricValue>();
+        this.rubricValues = new ArrayList<RubricValue>();
     }
 
     public Rubric(Item item) {
         this.item = item;
         item.setRubric(this);
-        this.rubricValues = new HashSet<RubricValue>();
+        this.rubricValues = new ArrayList<RubricValue>();
     }
 
-    public Rubric(Item item, HashSet<RubricValue> rubricValues) {
+    public Rubric(Item item, ArrayList<RubricValue> rubricValues) {
         this.item = item;
         this.rubricValues = rubricValues;
     }

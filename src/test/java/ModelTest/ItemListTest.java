@@ -1,11 +1,12 @@
 package ModelTest;
 
-import Model.*;
-
 import static org.junit.Assert.*;
 
+import springboot.Model.Item;
 import org.junit.After;
 import org.junit.Before;
+import springboot.Model.Instructor;
+import springboot.Model.ItemList;
 
 public class ItemListTest {
     protected Item item1, item2;

@@ -1,11 +1,12 @@
 package ModelTest;
 
-import Model.*;
-
 import static org.junit.Assert.*;
 
+import springboot.Model.Item;
+import springboot.Model.RubricValue;
 import org.junit.After;
 import org.junit.Before;
+import springboot.Model.Rubric;
 
 public class RubricTest {
     protected RubricValue rValue1, rValue2, rValue3;

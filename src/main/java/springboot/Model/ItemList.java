@@ -1,10 +1,9 @@
-package Model;
+package springboot.Model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
-import java.util.Collection;
 
-@Entity
+//@Entity
 public class ItemList {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)

@@ -1,16 +1,19 @@
-package Model;
+package springboot.Model;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
+import javax.persistence.*;
 
 @Entity
 public class Student extends Person {
 
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+    private Integer id = null;
     private Integer studentNumber = null;
     private Boolean inGroup = false;
+
+    @ManyToOne
     private Group group;
+
     public Student() {}
     public Student(String name, Integer studentNumber) {
         super(name, "student");

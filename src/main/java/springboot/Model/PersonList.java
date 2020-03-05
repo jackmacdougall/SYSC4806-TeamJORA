@@ -1,9 +1,10 @@
-package Model;
+package springboot.Model;
 
 import javax.persistence.*;
-import java.util.HashSet;
+import java.util.ArrayList;
+import java.util.List;
 
-@Entity
+//@Entity
 public class PersonList {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -11,13 +12,13 @@ public class PersonList {
     private String name = null;
 
     @OneToMany(cascade = CascadeType.ALL)
-    private HashSet<Person> personList;
+    private List<Person> personList;
 
     public PersonList(){
-        this.personList = new HashSet<Person>();
+        this.personList = new ArrayList<Person>();
     }
 
-    public PersonList(String name, HashSet<Person> personList){
+    public PersonList(String name, ArrayList<Person> personList){
         this.name = name;
         this.personList = personList;
     }
@@ -34,11 +35,11 @@ public class PersonList {
         this.name = name;
     }
 
-    public HashSet<Person> getPersonList(){
+    public List<Person> getPersonList(){
         return this.personList;
     }
 
-    public void setPersonList(HashSet<Person> personList){
+    public void setPersonList(ArrayList<Person> personList){
         this.personList = personList;
     }
 

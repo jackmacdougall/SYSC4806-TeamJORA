@@ -1,9 +1,9 @@
 package ModelTest;
 
-import Model.PersonList;
-import Model.Person;
-import Model.Student;
-import Model.Instructor;
+import springboot.Model.Person;
+import springboot.Model.PersonList;
+import springboot.Model.Student;
+import springboot.Model.Instructor;
 
 import static org.junit.Assert.*;
 

@@ -1,11 +1,11 @@
 package ModelTest;
 
-import Model.*;
-
 import static org.junit.Assert.*;
 
+import springboot.Model.Group;
 import org.junit.After;
 import org.junit.Before;
+import springboot.Model.Student;
 
 public class GroupTest {
     protected Student student1, student2, student3;

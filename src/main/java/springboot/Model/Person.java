@@ -1,8 +1,7 @@
-package Model;
+package springboot.Model;
 
 import javax.persistence.*;
 
-@Entity
 public abstract class Person {
 
     @Id

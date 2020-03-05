@@ -1,8 +1,5 @@
-package Controller;
+package springboot.Controller;
 
-import Model.Student;
-import Model.Group;
-import Model.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
@@ -11,6 +8,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import springboot.Model.Student;
+import springboot.Model.Group;
+import springboot.Model.StudentRepository;
 
 @Controller
 public class GroupController {

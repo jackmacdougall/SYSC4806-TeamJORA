@@ -1,8 +1,8 @@
-package Model;
+package springboot.Model;
 
 import javax.persistence.*;
 
-@Entity
+//@Entity
 public class RubricValue {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
