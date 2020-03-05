@@ -14,8 +14,8 @@ public class ItemListTest {
 
     @Before
     public void setUp(){
-        item1 = new Item("Model.Item 1", "Description 1");
-        item2 = new Item("Model.Item 2", "Description 2");
+        item1 = new Item("Item 1", "Description 1");
+        item2 = new Item("Item 2", "Description 2");
         instructor1 = new Instructor("John Smith");
     }
 

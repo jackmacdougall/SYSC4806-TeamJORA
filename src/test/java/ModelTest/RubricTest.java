@@ -17,7 +17,7 @@ public class RubricTest {
         rValue1 = new RubricValue(1, "Description 1" );
         rValue2 = new RubricValue(2, "Description 2");
         rValue3 = new RubricValue(3, "Description 3");
-        item1 = new Item("Model.Item 1", "Description 1");
+        item1 = new Item("Item 1", "Description 1");
     }
 
     @org.junit.Test
