@@ -1,13 +1,19 @@
-package Model;
+package Application;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
 
 @Entity
+@Table(name="students", schema="students")
 public class Student extends Person {
 
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
+    @Column(name="studentNumber")
     private Integer studentNumber = null;
+
     private Boolean inGroup = false;
+
     private Group group;
+
     public Student() {}
     public Student(String name, Integer studentNumber) {
         super(name, "student");

@@ -1,6 +1,8 @@
 package Controller;
 
-import Model.*;
+import Application.Group;
+import Application.Student;
+import Application.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;

@@ -1,13 +1,7 @@
-package Model;
+package Application;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.OneToOne;
-
-@Entity
 public class Instructor extends Person {
 
-    @OneToOne(cascade = CascadeType.ALL)
     private ItemList itemList = null;
 
     public Instructor() {}

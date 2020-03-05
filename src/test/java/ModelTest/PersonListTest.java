@@ -1,9 +1,9 @@
 package ModelTest;
 
-import Model.PersonList;
-import Model.Person;
-import Model.Student;
-import Model.Instructor;
+import Application.PersonList;
+import Application.Person;
+import Application.Student;
+import Application.Instructor;
 
 import static org.junit.Assert.*;
 

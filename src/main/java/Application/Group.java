@@ -1,18 +1,19 @@
-package Model;
+package Application;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
+//@Entity
+//@Table(name="Group", schema="student_groups")
 public class Group {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+//    @Id
+//    @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
     private String name = null;
     private Integer maxSize = -1;
 
-    @OneToMany(cascade = CascadeType.ALL)
+    //@OneToMany(targetEntity=Student.class, fetch=FetchType.EAGER)
     private List<Student> students;
 
     public Group() {

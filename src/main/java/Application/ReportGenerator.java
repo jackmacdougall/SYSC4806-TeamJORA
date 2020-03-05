@@ -1,4 +1,4 @@
-package Model;
+package Application;
 
 public class ReportGenerator {
 }

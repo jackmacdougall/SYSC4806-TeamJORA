@@ -1,20 +1,16 @@
-package Model;
+package Application;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
 public class ItemList {
-    @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+
     private Integer id = null;
     private String name = null;
 
-    @OneToOne
     private Instructor instructor = null;
 
-    @OneToMany(cascade = CascadeType.ALL)
     private List<Item> items;
 
     public ItemList(){

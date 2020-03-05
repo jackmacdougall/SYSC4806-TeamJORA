@@ -1,7 +1,5 @@
 package Application;
 
-import Model.Student;
-import Model.StudentRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;

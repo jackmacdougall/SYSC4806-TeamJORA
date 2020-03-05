@@ -1,8 +1,8 @@
 package ModelTest;
 
-import Model.Item;
-import Model.Rubric;
-import Model.RubricValue;
+import Application.Item;
+import Application.Rubric;
+import Application.RubricValue;
 
 import static org.junit.Assert.*;
 
