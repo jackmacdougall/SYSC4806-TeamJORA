@@ -1,11 +1,12 @@
 package ModelTest;
 
-import Model.*;
-
 import static org.junit.Assert.*;
 
+import springboot.Model.Item;
 import org.junit.After;
 import org.junit.Before;
+import springboot.Model.Instructor;
+import springboot.Model.ItemList;
 
 public class ItemListTest {
     protected Item item1, item2;
@@ -13,8 +14,8 @@ public class ItemListTest {
 
     @Before
     public void setUp(){
-        item1 = new Item("Item 1", "Description 1");
-        item2 = new Item("Item 2", "Description 2");
+        item1 = new Item("Model.Item 1", "Description 1");
+        item2 = new Item("Model.Item 2", "Description 2");
         instructor1 = new Instructor("John Smith");
     }
 

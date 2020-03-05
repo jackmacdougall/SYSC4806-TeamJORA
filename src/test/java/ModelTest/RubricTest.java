@@ -1,11 +1,12 @@
 package ModelTest;
 
-import Model.*;
-
 import static org.junit.Assert.*;
 
+import springboot.Model.Item;
+import springboot.Model.RubricValue;
 import org.junit.After;
 import org.junit.Before;
+import springboot.Model.Rubric;
 
 public class RubricTest {
     protected RubricValue rValue1, rValue2, rValue3;
@@ -16,7 +17,7 @@ public class RubricTest {
         rValue1 = new RubricValue(1, "Description 1" );
         rValue2 = new RubricValue(2, "Description 2");
         rValue3 = new RubricValue(3, "Description 3");
-        item1 = new Item("Item 1", "Description 1");
+        item1 = new Item("Model.Item 1", "Description 1");
     }
 
     @org.junit.Test

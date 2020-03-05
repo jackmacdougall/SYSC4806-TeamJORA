@@ -1,11 +1,11 @@
 package ModelTest;
 
-import Model.*;
-
 import static org.junit.Assert.*;
 
+import springboot.Model.StudentGroup;
 import org.junit.After;
 import org.junit.Before;
+import springboot.Model.Student;
 
 public class GroupTest {
     protected Student student1, student2, student3;
@@ -19,7 +19,7 @@ public class GroupTest {
 
     @org.junit.Test
     public void addStudentToGroup(){
-        Group group = new Group("Group", 2);
+        StudentGroup group = new StudentGroup("Group", 2);
         group.addStudent(student1);
         assertEquals(1, group.getSize());
         group.addStudent(student1);
@@ -32,7 +32,7 @@ public class GroupTest {
 
     @org.junit.Test
     public void removeStudentFromList(){
-        Group group = new Group("Group");
+        StudentGroup group = new StudentGroup("Group");
         group.addStudent(student1);
         group.addStudent(student2);
         group.addStudent(student3);
@@ -47,7 +47,7 @@ public class GroupTest {
 
     @org.junit.Test
     public void checkStudentInGroup(){
-        Group group = new Group("Group");
+        StudentGroup group = new StudentGroup("Group");
         assertFalse(student1.isInGroup());
         group.addStudent(student1);
         assertTrue(student1.isInGroup());
