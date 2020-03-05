@@ -8,6 +8,10 @@ Make an application that will allow students to evaluate their peers.  An Model.
   Model: Where the data model and crudrepositories of the application are located\
   Controller: Where the controllers that hook up the front and back ends are located\
   client: Where the front-end is located\
+  
+# Setup
+    Run class BootApplication in springboot package as main class.\
+    Once it's running, enter this url to your browser - http://localhost:8081/jorahome
  
 # UML Class Diagram
 ![UML Class Diagram](https://github.com/jackmacdougall/SYSC4806-TeamJORA/blob/master/Docs/UML%20Diagram%20v.01.png)
