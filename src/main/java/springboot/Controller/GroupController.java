@@ -9,12 +9,12 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import springboot.Model.Student;
-import springboot.Model.StudentGroup;
+import springboot.Model.Group;
 import springboot.Model.StudentRepository;
 
 @Controller
-public class StudentGroupController {
-    private StudentGroup group = new StudentGroup("classroom", 5);
+public class GroupController {
+    private Group group = new Group("classroom", 5);
     @Autowired
     private StudentRepository studentRepository;
 

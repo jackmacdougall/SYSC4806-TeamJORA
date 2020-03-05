@@ -12,7 +12,7 @@ public class Student extends Person {
     private Boolean inGroup = false;
 
     @ManyToOne
-    private StudentGroup group;
+    private Group group;
 
     public Student() {}
     public Student(String name, Integer studentNumber) {
@@ -20,7 +20,7 @@ public class Student extends Person {
         this.studentNumber = studentNumber;
     }
 
-    public Student(String name, Integer studentNumber, StudentGroup group){
+    public Student(String name, Integer studentNumber, Group group){
         this(name, studentNumber);
         this.group = group;
         setInGroup();
@@ -34,11 +34,11 @@ public class Student extends Person {
         this.studentNumber = studentNumber;
     }
 
-    public void addToGroup(StudentGroup group){
+    public void addToGroup(Group group){
         this.group = group;
         group.addStudent(this);
     }
-    public void setGroup(StudentGroup group){
+    public void setGroup(Group group){
         this.group = group;
         setInGroup();
     }

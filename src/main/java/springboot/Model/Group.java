@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-public class StudentGroup {
+public class Group {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
@@ -15,23 +15,23 @@ public class StudentGroup {
     @OneToMany
     private List<Student> students;
 
-    public StudentGroup() {
+    public Group() {
         this.students = new ArrayList<Student>();
     }
 
-    public StudentGroup(String name) {
+    public Group(String name) {
         this.name = name;
         this.maxSize = -1;
         this.students = new ArrayList<Student>();
     }
 
-    public StudentGroup(String name, Integer maxSize) {
+    public Group(String name, Integer maxSize) {
         this.name = name;
         this.maxSize = maxSize;
         this.students = new ArrayList<Student>();
     }
 
-    public StudentGroup(String name, ArrayList<Student> students, Integer maxSize){
+    public Group(String name, ArrayList<Student> students, Integer maxSize){
         this.name = name;
         this.students = students;
         this.maxSize = maxSize;
