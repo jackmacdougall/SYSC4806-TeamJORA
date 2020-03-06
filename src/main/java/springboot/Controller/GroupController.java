@@ -8,28 +8,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
+import springboot.Model.GroupRepository;
 import springboot.Model.Student;
 import springboot.Model.Group;
 import springboot.Model.StudentRepository;
 
 @Controller
 public class GroupController {
-    private Group group = new Group("classroom", 5);
     @Autowired
-    private StudentRepository studentRepository;
+    private GroupRepository groupRepository;
 
-  @GetMapping(value = "/addStudent")
-    public String getStudent(@RequestParam("studentID") String studentName, @RequestParam("studentID") int studentID, Model model) {
-        model.addAttribute(new Student(studentName, studentID));
-        return "addStudent";
+    @PostMapping(value = "/addGroup")
+    public String addGroup(@RequestParam(value="name") String name) {
+        groupRepository.save(new Group(name));
+        return "/jorahome";
     }
-
-    @PostMapping(value = "/addStudent")
-    public String addStudent(@ModelAttribute Student student) {
-        group.addStudent(student);
-        studentRepository.save(student);
-
-        return "viewGroup";
-    }
-
 }
