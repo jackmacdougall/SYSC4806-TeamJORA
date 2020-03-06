@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Add Group</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <form th:action="@{/addGroup}" th:object="${group}" method="post">
-        <input type="text" th:field="*{name}"/>
+    <form th:action="@{/group/add}" th:object="${newGroup}" method="post">
+        <p> Enter name of new group: <input type="text" th:field="*{name}"/></p>
         <input type="submit" Value="Add Group"/>
     </form>
 </body>
