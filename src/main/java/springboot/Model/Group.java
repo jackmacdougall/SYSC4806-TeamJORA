@@ -5,12 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Entity
+@Table(name="StudentGroups")
 public class Group {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
     private String name = null;
-    private Integer maxSize = -1;
 
     @OneToMany
     private List<Student> students;
@@ -21,20 +21,12 @@ public class Group {
 
     public Group(String name) {
         this.name = name;
-        this.maxSize = -1;
         this.students = new ArrayList<Student>();
     }
 
-    public Group(String name, Integer maxSize) {
-        this.name = name;
-        this.maxSize = maxSize;
-        this.students = new ArrayList<Student>();
-    }
-
-    public Group(String name, ArrayList<Student> students, Integer maxSize){
+    public Group(String name, ArrayList<Student> students){
         this.name = name;
         this.students = students;
-        this.maxSize = maxSize;
     }
 
     public Integer getId() {
@@ -57,21 +49,11 @@ public class Group {
         this.students = students;
     }
 
-    public Integer getMaxSize(){
-        return this.maxSize;
-    }
-
-    public void setMaxSize(int maxSize){
-        this.maxSize = maxSize;
-    }
-
     public void addStudent(Student student) {
-        if (maxSize == -1 || this.getSize() < maxSize) {
             if (!student.isInGroup()){
                 this.students.add(student);
                 student.setGroup(this);
             }
-        }
     }
 
     public void removeStudent(Student student){

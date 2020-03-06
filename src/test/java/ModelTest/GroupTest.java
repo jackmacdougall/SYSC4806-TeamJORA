@@ -19,14 +19,12 @@ public class GroupTest {
 
     @org.junit.Test
     public void addStudentToGroup(){
-        Group group = new Group("Group", 2);
+        Group group = new Group("Group");
         group.addStudent(student1);
         assertEquals(1, group.getSize());
         group.addStudent(student1);
         assertEquals(1, group.getSize());
         group.addStudent(student2);
-        assertEquals(2, group.getSize());
-        group.addStudent(student3);
         assertEquals(2, group.getSize());
     }
 
