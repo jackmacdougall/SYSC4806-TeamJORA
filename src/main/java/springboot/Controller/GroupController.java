@@ -18,9 +18,16 @@ public class GroupController {
     @Autowired
     private GroupRepository groupRepository;
 
-    @PostMapping(value = "/addGroup")
-    public String addGroup(@RequestParam(value="name") String name) {
-        groupRepository.save(new Group(name));
-        return "/jorahome";
+    @GetMapping(value = "/addGroupPage")
+    public String addGroupPage(Model model){
+        model.addAttribute("group", new Group());
+        return "addGroupPage";
     }
+
+    @PostMapping(value = "/addGroup")
+    public String addGroup(@ModelAttribute Group group) {
+        groupRepository.save(group);
+        return "jorahome";
+    }
+
 }

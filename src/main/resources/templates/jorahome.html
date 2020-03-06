@@ -9,10 +9,8 @@
 </head>
 <body>
     <h1>Peer Assessment Tool</h1>
-    <div id="group-container">
-        <button id="addGroupButton">Add Group</button>
-        <label for="newGroupName">New Group Name</label>
-        <input type="text" id="newGroupName">
-    </div>
+    <form th:action="@{/addGroupPage}" method="get">
+        <p><input type="submit" value="Add Group"/></p>
+    </form>
 </body>
 </html>
