@@ -36,7 +36,6 @@ public class Student extends Person {
 
     public void addToGroup(Group group){
         this.group = group;
-        group.addStudent(this);
     }
     public void setGroup(Group group){
         this.group = group;
