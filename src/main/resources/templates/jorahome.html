@@ -3,9 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <title>Peer Assessment Tool</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="group.js"></script>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
     <h1>Peer Assessment Tool</h1>
+    <form th:action="@{/group/addGroupPage}" method="get">
+        <p><input type="submit" value="Add Group"/></p>
+    </form>
+    <form th:action="@{/group/all}" method="get">
+        <p><input type="submit" value="View All Groups"/></p>
+    </form>
 </body>
 </html>

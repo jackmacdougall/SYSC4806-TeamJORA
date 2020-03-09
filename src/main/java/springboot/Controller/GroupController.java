@@ -4,32 +4,40 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+import springboot.Model.GroupRepository;
 import springboot.Model.Student;
 import springboot.Model.Group;
 import springboot.Model.StudentRepository;
+import springboot.Service.GroupService;
 
 @Controller
+@RequestMapping("/group")
 public class GroupController {
-    private Group group = new Group("classroom", 5);
-    @Autowired
-    private StudentRepository studentRepository;
 
-  @GetMapping(value = "/addStudent")
-    public String getStudent(@RequestParam("studentID") String studentName, @RequestParam("studentID") int studentID, Model model) {
-        model.addAttribute(new Student(studentName, studentID));
-        return "addStudent";
+    private final GroupService service;
+
+    public GroupController(GroupService service) {
+        this.service = service;
     }
 
-    @PostMapping(value = "/addStudent")
-    public String addStudent(@ModelAttribute Student student) {
-        group.addStudent(student);
-        studentRepository.save(student);
+    @GetMapping(value = "/addGroupPage")
+    public String addGroupPage(Model model){
+        model.addAttribute("newGroup", new Group());
+        return "addGroupPage";
+    }
 
-        return "viewGroup";
+    @GetMapping(value = "/all")
+    public String groupListPage(Model model){
+        model.addAttribute("groups", service.getAllGroups());
+        return "groupListPage";
+    }
+
+    @PostMapping(value = "/add")
+    public String addGroup(@ModelAttribute Group group, Model model) {
+        service.addGroup(group);
+        model.addAttribute("groups", service.getAllGroups());
+        return "groupListPage";
     }
 
 }
