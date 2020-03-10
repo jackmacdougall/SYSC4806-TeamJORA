@@ -28,7 +28,7 @@ Jack got rid of the student list, it was messing up
 
 If something is making problems with the schema, remove it.
 
-Remove Classes from the model.
+Remove Classes from the model. (if and only if they are breaking the system. be sure to notify group)
 
 So in order for the eval to be saved for each student. Let's say they got a 4,3,2. so we can have a student result table. 
 
