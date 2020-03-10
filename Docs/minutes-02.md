@@ -16,7 +16,7 @@ Need to start work on the presentation
   
   
 To run, comment out first 4 lines in the applications properties, and make sure that you
-Install postgres so that you can run it and it's on https://peerassessmenttool-jora.herokuapp.com/jorahome
+Install postgres so that you can run it locally and it's on https://peerassessmenttool-jora.herokuapp.com/jorahome
 
 Now we're gonna talk about what we all need to do:
 On tuesday get as much done as we can.
