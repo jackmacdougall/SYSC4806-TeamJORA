@@ -24,7 +24,7 @@ Groups - Riley
 
 Finalize schema.  
 
-Jack got rid of the student list, it was messing up 
+Jack got rid of the student list in the Group class, it was messing up 
 
 If something is making problems with the schema, remove it.
 
