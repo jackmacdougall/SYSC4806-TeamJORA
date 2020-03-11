@@ -9,7 +9,7 @@ import springboot.Model.*;
 @Controller
 public class HomeController {
 
-    @GetMapping(value = "/jorahome")
+    @GetMapping(value = "/")
     public String jorahome() {
         return "jorahome";
     }
