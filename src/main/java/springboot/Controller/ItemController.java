@@ -23,7 +23,7 @@ public class ItemController {
     }
 
     @PostMapping(value = "/add")
-    public String addGroup(@ModelAttribute Item item, Model model) {
+    public String addItem(@ModelAttribute Item item, Model model) {
         service.addItem(item);
         model.addAttribute("items", service.getAllItems());
         return "itemPage";
