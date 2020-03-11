@@ -1,6 +1,4 @@
 language: java
-jdk:
-- oraclejdk13
 deploy:
  provider: heroku
  api-key:
