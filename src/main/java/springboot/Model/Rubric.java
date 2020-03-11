@@ -23,7 +23,7 @@ public class Rubric {
 
     public Rubric(Item item) {
         this.item = item;
-        item.setRubric(this);
+//        item.setRubric(this);
         this.rubricValues = new ArrayList<RubricValue>();
     }
 
