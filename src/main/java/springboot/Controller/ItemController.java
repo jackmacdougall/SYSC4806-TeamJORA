@@ -19,16 +19,22 @@ public class ItemController {
         this.service = service;
     }
 
-    @GetMapping(value = "/itemPage")
-    public String itemPage(Model model) {
+    @GetMapping(value = "/addItemPage")
+    public String addItemPage(@ModelAttribute Item item, Model model) {
+        model.addAttribute("item", new Item());
+        return "addItemPage";
+    }
+
+    @GetMapping(value = "/all")
+    public String itemListPage(Model model) {
         model.addAttribute("item", service.getAllItems());
-        return "itemPage";
+        return "itemListPage";
     }
 
     @PostMapping(value = "/add")
     public String addItem(@ModelAttribute Item item, Model model) {
         service.addItem(item);
         model.addAttribute("item", service.getAllItems());
-        return "itemPage";
+        return "itemListPage";
     }
 }
