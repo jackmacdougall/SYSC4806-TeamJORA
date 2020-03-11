@@ -13,10 +13,10 @@
     </tr>
     </thead>
     <tbody>
-    <tr th:if="${items.empty}">
+    <tr th:if="${item.empty}">
         <td colspan="2"> No Criteria Listed </td>
     </tr>
-    <tr th:each="item : ${items}">
+    <tr th:each="item : ${item}">
         <td><span th:text="${item.name}"> Name </span></td>
     </tr>
     </tbody>
