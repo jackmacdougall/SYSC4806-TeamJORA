@@ -1,6 +1,8 @@
 language: java
+jdk:
+- oraclejdk13
 deploy:
- provider: heroku
- api-key:
-  secure: $HEROKU_API_KEY
- app: peerassessmenttool-jora
+  provider: heroku
+  api_key:
+    secure: hLGwTIQ016DzMzEG3YGJxPNIouQafrb8MqB26JjkdQYy4igwIvMpAPL/IUZMveVVfilyCcFLKq/rpUNq81hGz5l4LWIcmEXpDhFvVH4nEQsCyWzR3tb2QgKQJ69r0NOzPPRsB0fB7lz13rQxWwb9wiL7fi0jaPGP8r/FqmBhQuPTMEiUuU9+gkqaJbdxRmjGnRRnfNzuSedv9JQScmsVu4Zcy5G/vdlMIhr/DJ8d83jgTNfhkgBX3S1rBdaggcgrWp/6Fg5eJL8RwW2IUssL4R3ljBK+CrGm6/hLsNZlaeCoWYF5ASvzOe6rKahVkort4avApsPsKVaX61bN+JaJfl3KWzsnQK/Mt93fqBSg+lagQtL5yGLgXBBPUBTR1wNj7sV5iE8L28EqfXplDGUa1gWCvLTZWmeKDMjAiJrIwT2JPZYJc+a2EQFHy3k0VpOILycoL77ZnPUS3qb+DTsLfcu7dtwdxZpiu/5mnim+psy8jxWUr/E5nkXAw8QT+m/1uI4CbOZM2yaftHJ5KN08xjWFGSQ79E1xv4Yy8TCGnPKMiM2dFGNCFBtJKNmEVoffHckB6GbEORXpipg1lY6iMo9IAC7mMLczo/JmUUaQYN6lS0GzSFYu+rnlxecTqVrdvyPk/GqGtYXRzv2odpnf0MzlEl1Xminn9607JjRgRHY=
+  app: peerassessmenttool-jora
