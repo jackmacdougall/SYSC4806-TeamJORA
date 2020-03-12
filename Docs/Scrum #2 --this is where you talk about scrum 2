@@ -1,0 +1,34 @@
+Discussed relationships between students and groups
+
+Talked about progress with the TA
+
+Integration Testing:
+ * especially when we add stuff, make a group within test, then call the endpoint and then check the repo to see if it reacted correctly
+ * for ones that just link to other pages, check correct view, status. Jack has example on the group integration tests.
+
+Rubric Value, keeping for now just in case we need it later. Getting rid of item list.
+
+Need to update UML reduce redundancy
+
+If up to it today, make student service, look at group service.
+
+Jack and Riley will meet up tomorrow after class to figure out entity relationship.
+
+Also need to figure out how we know if user is student or instructor. Probably just list of buttons. Make select student button that sets attribute to change user. sets attribute with student id.
+we can start doing add student to group.
+
+Omar did add item list
+
+* Will be a good idea to have a title on each webpage. * 
+
+how do we create items vs rubrics? select item and create a rubric for it.
+Can you create an item independently? can you reuse rubrics? many items can have one rubric that's a many to many!
+we need to have a results page too.
+An instructor can have many items.
+One student can have many results and one report at the end.
+
+AJAX will definitely be on the exam. 
+
+Make sure to put up scrum on the issues.
+
+Omar just make sure you write some good tests.
