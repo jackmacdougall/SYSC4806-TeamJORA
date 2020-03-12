@@ -34,7 +34,7 @@ public class GroupController {
     }
 
     @PostMapping(value = "/add")
-    public String addGroup(@ModelAttribute Group group, Model model) {
+    public String addGroup(@ModelAttribute("group") Group group, Model model) {
         service.addGroup(group);
         model.addAttribute("groups", service.getAllGroups());
         return "groupListPage";
