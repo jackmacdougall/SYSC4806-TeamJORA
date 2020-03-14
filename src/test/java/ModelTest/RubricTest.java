@@ -48,11 +48,6 @@ public class RubricTest {
         assertEquals(0, rubric.getSize());
     }
 
-//    @org.junit.Test
-//    public void itemHasRubric(){
-//        Rubric rubric = new Rubric(item1);
-//        assertTrue(item1.getRubric().equals(rubric));
-//    }
 
     @After
     public void tearDown(){
