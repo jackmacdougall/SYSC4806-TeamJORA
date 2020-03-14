@@ -1,5 +1,6 @@
 package IntegrationTest;
 
+import org.springframework.boot.test.context.SpringBootTest;
 import springboot.Model.*;
 import org.junit.Test;
 import org.junit.runner.RunWith;
