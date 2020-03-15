@@ -2,7 +2,8 @@ package springboot.Model;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
+@Table(name="items")
 public class Item {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -10,8 +11,8 @@ public class Item {
     private String name = null;
     private String description = null;
 
-    @OneToOne
-    private Rubric rubric = null;
+//    @OneToOne
+//    private Rubric rubric = null;
 
     public Item() {}
 
@@ -40,11 +41,11 @@ public class Item {
         this.description = description;
     }
 
-    public Rubric getRubric(){
-        return this.rubric;
-    }
-
-    public void setRubric(Rubric rubric){
-        this.rubric = rubric;
-    }
+//    public Rubric getRubric(){
+//        return this.rubric;
+//    }
+//
+//    public void setRubric(Rubric rubric){
+//        this.rubric = rubric;
+//    }
 }

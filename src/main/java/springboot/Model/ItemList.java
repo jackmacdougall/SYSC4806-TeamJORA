@@ -2,34 +2,35 @@ package springboot.Model;
 
 import javax.persistence.*;
 import java.util.ArrayList;
+import java.util.List;
 
-//@Entity
+@Entity
 public class ItemList {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
     private String name = null;
 
-    @OneToOne
-    private Instructor instructor = null;
+//    @OneToOne
+//    private Instructor instructor = null;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    private ArrayList<Item> items;
+//    @OneToMany(cascade = CascadeType.ALL)
+      private ArrayList<Item> items;
 
     public ItemList(){
-        this.items = new ArrayList<Item>();
+        this.items = new ArrayList<>();
     }
 
     public ItemList(String name, Instructor instructor){
         this.name = name;
-        this.instructor = instructor;
-        this.instructor.setItemList(this);
-        this.items = new ArrayList<Item>();
+//        this.instructor = instructor;
+//        this.instructor.setItemList(this);
+        this.items = new ArrayList<>();
     }
 
     public ItemList(String name, Instructor instructor, ArrayList<Item> items){
         this.name = name;
-        this.instructor = instructor;
+//        this.instructor = instructor;
         this.items = items;
     }
 

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Item</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form th:action="@{/item/add}" th:object="${item}" method="post">
+        <p> Enter the new item criteria: <input type="text" th:field="*{name}"/></p>
+        <input type="submit" Value="Add Item"/>
+    </form>
+    <form th:action="@{/}" method="get">
+        <input type="submit" Value="Home Page"/>
+    </form>
+</body>
+</body>
+</html>

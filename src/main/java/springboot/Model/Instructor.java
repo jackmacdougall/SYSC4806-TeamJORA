@@ -5,8 +5,8 @@ import javax.persistence.*;
 //@Entity
 public class Instructor extends Person {
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private ItemList itemList = null;
+   //@OneToOne(cascade = CascadeType.ALL)
+    //private ItemList itemList = null;
 
     public Instructor() {}
 
@@ -14,12 +14,12 @@ public class Instructor extends Person {
         super(name, "instructor");
     }
 
-    public void setItemList(ItemList itemList){
-        this.itemList = itemList;
-    }
-
-    public ItemList getItemList(){
-        return this.itemList;
-    }
+//    public void setItemList(ItemList itemList){
+//        this.itemList = itemList;
+//    }
+//
+//    public ItemList getItemList(){
+//        return this.itemList;
+//    }
 
 }

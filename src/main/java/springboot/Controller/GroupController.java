@@ -39,5 +39,4 @@ public class GroupController {
         model.addAttribute("groups", service.getAllGroups());
         return "groupListPage";
     }
-
 }
