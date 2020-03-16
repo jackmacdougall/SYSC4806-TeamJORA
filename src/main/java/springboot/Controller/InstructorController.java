@@ -22,7 +22,7 @@ public class InstructorController {
 
     @GetMapping(value = "/addInstructorPage")
     public String addInstructorPage(@ModelAttribute Instructor instructor, Model model) {
-        model.addAttribute("instructor", new Instructor());
+        model.addAttribute("person", new Instructor());
         return "addInstructorPage";
     }
 

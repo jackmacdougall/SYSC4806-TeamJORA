@@ -8,14 +8,17 @@
 <body>
 <table id="personTable">
     <thead>
-        <tr><th> List of People          Type </th></tr>
+        <tr><th> List of People </th></tr>
+        <tr><th> Type </th></tr>
     </thead>
     <tbody>
     <tr th:if="${person.empty}">
-        <td colspan="2"> No Criteria Listed </td>
+        <td colspan="3"> No Criteria Listed </td>
     </tr>
     <tr th:each="person : ${person}">
+        <td><span th:text="${person.id}"> Name </span></td>
         <td><span th:text="${person.name}"> Name </span></td>
+        <td><span th:text="${person.type}"> Name </span></td>
     </tr>
     </tbody>
 </table>

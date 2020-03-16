@@ -14,16 +14,16 @@ public abstract class Person {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
     private String name = null;
-    private Type type = null;
+    private String type = null;
 
     public Person() {}
 
     public Person(String name){
         this.name = name;
-        type = Type.STUDENT;
+        type = "Student";
     }
 
-    public Person(String name, Type type){
+    public Person(String name, String type){
         this.name = name;
         this.type = type;
     }
@@ -40,7 +40,7 @@ public abstract class Person {
         this.name = name;
     }
 
-    public Type getType(){
+    public String getType(){
         return this.type;
     }
 

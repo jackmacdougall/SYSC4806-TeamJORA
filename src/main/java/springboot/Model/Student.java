@@ -16,7 +16,7 @@ public class Student extends Person {
 
     public Student() {}
     public Student(String name, Integer studentNumber) {
-        super(name, Type.STUDENT);
+        super(name, "Student");
         this.studentNumber = studentNumber;
     }
 
