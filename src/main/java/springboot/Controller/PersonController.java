@@ -16,6 +16,11 @@ public class PersonController {
         this.service = service;
     }
 
+    @GetMapping(value = "/addPersonPage")
+    public String addPersonPage() {
+        return "addPersonPage";
+    }
+
     @GetMapping(value = "/all")
     public String itemListPage(Model model) {
         model.addAttribute("person", service.getAllPersons());
