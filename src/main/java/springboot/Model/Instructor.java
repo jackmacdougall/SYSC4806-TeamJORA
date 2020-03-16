@@ -2,11 +2,13 @@ package springboot.Model;
 
 import javax.persistence.*;
 
-//@Entity
+@Entity
+@Table(name = "instructors")
 public class Instructor extends Person {
-
-   //@OneToOne(cascade = CascadeType.ALL)
-    //private ItemList itemList = null;
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id = null;
+    private String name = null;
 
     public Instructor() {}
 
@@ -14,12 +16,10 @@ public class Instructor extends Person {
         super(name, Type.INSTRUCTOR);
     }
 
-//    public void setItemList(ItemList itemList){
-//        this.itemList = itemList;
-//    }
-//
-//    public ItemList getItemList(){
-//        return this.itemList;
-//    }
+    public void setId(Integer id) { this.id = id; }
 
+    public void setName(String name) { this.name = name; }
+
+    public Integer getId() { return this.id; }
+    public String getName() { return this.name; }
 }
