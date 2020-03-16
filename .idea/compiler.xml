@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="PeerAssessmentTool" />
+        <module name="tmp-JORA" />
         <module name="SYSC4806-TeamJORA" />
         <module name="tmp_wksp_JORA" />
       </profile>
@@ -16,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="PeerAssessmentTool" options="-parameters" />
       <module name="SYSC4806-TeamJORA" options="-parameters" />
+      <module name="tmp-JORA" options="-parameters" />
       <module name="tmp_wksp_JORA" options="-parameters" />
     </option>
   </component>

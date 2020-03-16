@@ -11,7 +11,7 @@ public class Instructor extends Person {
     public Instructor() {}
 
     public Instructor(String name) {
-        super(name, "instructor");
+        super(name, Type.INSTRUCTOR);
     }
 
 //    public void setItemList(ItemList itemList){

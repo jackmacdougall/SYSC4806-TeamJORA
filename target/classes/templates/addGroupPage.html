@@ -6,7 +6,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <form th:action="@{/group/add}" th:object="${newGroup}" method="post">
+    <form th:action="@{/group/add}" th:object="${group}" method="post">
         <p> Enter name of new group: <input type="text" th:field="*{name}"/></p>
         <input type="submit" Value="Add Group"/>
     </form>
