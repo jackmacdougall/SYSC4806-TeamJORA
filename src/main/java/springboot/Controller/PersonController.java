@@ -22,7 +22,7 @@ public class PersonController {
     }
 
     @GetMapping(value = "/all")
-    public String itemListPage(Model model) {
+    public String personListPage(Model model) {
         model.addAttribute("person", service.getAllPersons());
         return "personListPage";
     }
