@@ -41,7 +41,7 @@ public class InstructorControllerIntegrationTest {
     private WebApplicationContext wac;
 
     private MockMvc mockMvc;
-    private Instructor instructor;
+    private Instructor instructor = new Instructor("Instructor_01");
 
     @Before
     public void setup() {
@@ -50,7 +50,7 @@ public class InstructorControllerIntegrationTest {
 
     @Test
     public void testLoadAddPersonPage() throws Exception {
-        this.mockMvc.perform(get("/person/addInstructorPage"))
+        this.mockMvc.perform(get("/instructor/addInstructorPage"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("addInstructorPage"))
                 .andExpect(model().attributeExists("person"))
@@ -60,7 +60,7 @@ public class InstructorControllerIntegrationTest {
     @Test
     public void testAddInstructor() throws Exception {
         assertNull(personRepository.findByName(this.instructor.getName()));
-        this.mockMvc.perform(post("/instructor/add").flashAttr("person", instructor));
+        this.mockMvc.perform(post("/instructor/add").flashAttr("instructor", instructor));
 
         assertThat(this.instructor.getName()).isSameAs(personRepository.findByName(instructor.getName()).getName());
         assertThat(this.instructor.getId()).isSameAs(personRepository.findByName(instructor.getName()).getId());

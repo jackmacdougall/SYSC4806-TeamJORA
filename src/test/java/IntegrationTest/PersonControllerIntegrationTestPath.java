@@ -39,13 +39,12 @@ public class PersonControllerIntegrationTestPath {
         this.mockMvc.perform(get("/person/addPersonPage"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("addPersonPage"))
-                .andExpect(model().attributeExists("person"))
                 .andReturn();
     }
 
     @Test
     public void testLoadPersonListPage() throws Exception {
-        this.mockMvc.perform(get("/person/personListPage"))
+        this.mockMvc.perform(get("/person/all"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("personListPage"))
                 .andExpect(model().attributeExists("person"))
