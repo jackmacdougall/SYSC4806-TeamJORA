@@ -2,7 +2,13 @@ package springboot.Model;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name="persons")
 public abstract class Person {
+    public enum Type {
+        INSTRUCTOR,
+        STUDENT
+    }
 
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
@@ -14,7 +20,9 @@ public abstract class Person {
 
     public Person(String name){
         this.name = name;
+        type = "Student";
     }
+
     public Person(String name, String type){
         this.name = name;
         this.type = type;
