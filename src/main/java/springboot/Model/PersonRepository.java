@@ -8,4 +8,3 @@ import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 public interface PersonRepository extends CrudRepository<Person, Integer> {
     Person findByName(@Param("name") String name);
 }
-
