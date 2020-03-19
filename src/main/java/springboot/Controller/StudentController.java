@@ -1,29 +1,35 @@
 package springboot.Controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMapping;
+import springboot.Model.Instructor;
 import springboot.Model.Student;
-import springboot.Model.StudentRepository;
+import springboot.Service.PersonService;
 
+@Controller
+@RequestMapping("/student")
 public class StudentController {
-    @Autowired
-    private StudentRepository studentRepository;
 
-    @GetMapping(value = "/addStudent")
-    public String getStudent(@RequestParam("studentID") String studentName, @RequestParam("studentID") int studentID, Model model) {
-        model.addAttribute(new Student(studentName, studentID));
-        return "addStudent";
+    private final PersonService service;
+
+    private StudentController(PersonService service) {
+        this.service = service;
     }
 
-    @PostMapping(value = "/addStudent")
-    public String addStudent(@ModelAttribute Student student) {
-        //group.addStudent(student);
-        studentRepository.save(student);
+    @GetMapping(value = "/addStudentPage")
+    public String addStudentPage(@ModelAttribute Student student, Model model) {
+        model.addAttribute("person", new Student());
+        return "addStudentPage";
+    }
 
-        return "viewGroup";
+    @PostMapping(value = "/add")
+    public String addInstructor(@ModelAttribute Student student, Model model) {
+        service.addPerson(student);
+        model.addAttribute("person", service.getAllPersons());
+        return "personListPage";
     }
 }
