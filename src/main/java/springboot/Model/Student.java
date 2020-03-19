@@ -11,7 +11,7 @@ public class Student extends Person {
     private Integer studentNumber = null;
     private Boolean inGroup = false;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Group group;
 
     public Student() {}
