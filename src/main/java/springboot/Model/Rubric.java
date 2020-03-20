@@ -35,10 +35,10 @@ public class Rubric {
 //        this.rubricValues = new ArrayList<RubricValue>();
     }
 
-    public Integer getValue(){
-        return this.value;
-    }
+    public Integer getId() { return this.id; }
+    public void setId(Integer id) { this.id = id; }
 
+    public Integer getValue(){ return this.value; }
     public void setValue(Integer value) {
         this.value = value;
     }
@@ -58,9 +58,6 @@ public class Rubric {
     public Item getItem(){
         return this.item;
     }
-
-    public void addToItem(Integer id) { }
-    public void addToItem(Item item) { this.item = item; }
     public void setItem(Item item){
         this.item = item;
     }
