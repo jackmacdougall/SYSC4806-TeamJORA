@@ -10,7 +10,7 @@ Make an application that will allow students to evaluate their peers.  An Model.
   Service: The intermediary between the controllers and the repositories
   
 # Setup
-    Use this heroku url - https://peerassessmenttool-jora.herokuapp.com/, in order to run the application. Note that it uses a postgresql database fir persistence 
+    Use this heroku url - (https://peerassessmenttool-jora.herokuapp.com/), in order to run the application. Note that it uses a postgresql database for persistence 
  
 # UML Class Diagram
 ![UML Class Diagram](https://github.com/jackmacdougall/SYSC4806-TeamJORA/blob/master/Docs/UML-%20Milestone%202.png)
