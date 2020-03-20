@@ -21,7 +21,7 @@ public class RubricController {
         this.itemService = itemService;
     }
 
-    @GetMapping(value="/all")
+    @GetMapping(value="/showall")
     public String rubricListPage(Model model) {
         model.addAttribute("rubric", service.getAllRubrics());
         return "rubricListPage";
@@ -29,6 +29,7 @@ public class RubricController {
 
     @GetMapping(value="/")
     public String addRubricPage(@RequestParam Integer item, @ModelAttribute Rubric rubric, Model model) {
+        model.addAttribute("item", itemService.findById(item));
         model.addAttribute("rubric", new Rubric(itemService.findById(item)));
         return "addRubricPage";
     }
