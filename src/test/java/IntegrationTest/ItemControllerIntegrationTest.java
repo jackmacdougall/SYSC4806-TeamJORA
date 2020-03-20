@@ -20,8 +20,12 @@ import springboot.BootApplication;
 import springboot.Controller.GroupController;
 import springboot.Controller.ItemController;
 import springboot.Model.Group;
+import springboot.Model.Item;
+import springboot.Model.ItemRepository;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.hamcrest.Matchers.containsString;
+import static org.junit.Assert.assertNull;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
@@ -35,9 +39,13 @@ public class ItemControllerIntegrationTest {
     ItemController itemController;
 
     @Autowired
+    ItemRepository itemRepository;
+
+    @Autowired
     private WebApplicationContext wac;
 
     private MockMvc mockMvc;
+    private Item item = new Item("Criteria", "Description");
 
     @Before
     public void setup() {
@@ -54,7 +62,7 @@ public class ItemControllerIntegrationTest {
     }
 
     @Test
-    public void testLoadGroupListPage() throws Exception{
+    public void testLoadItemListPage() throws Exception{
         this.mockMvc.perform(get("/item/all"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("itemListPage"))
@@ -62,4 +70,11 @@ public class ItemControllerIntegrationTest {
                 .andReturn();
     }
 
+    @Test
+    public void testAddItem() throws Exception{
+        assertNull(itemRepository.findByName(this.item.getName()));
+        this.mockMvc.perform(post("/item/add").flashAttr("item", item));
+        assertThat(this.item.getName()).isSameAs(itemRepository.findByName(item.getName()).getName());
+        assertThat(this.item.getId()).isSameAs(itemRepository.findByName(item.getName()).getId());
+    }
 }
