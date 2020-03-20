@@ -5,49 +5,72 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-//@Entity
+@Entity
 public class Rubric {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
 
-    @OneToOne
-    private Item item = null;
+    @ManyToOne
+    private Item item;
 
-    @OneToMany
-    private List<RubricValue> rubricValues;
+    private Integer value;
+    private String description;
 
-    public Rubric(){
-        this.rubricValues = new ArrayList<RubricValue>();
-    }
+//    @OneToMany
+//    private List<RubricValue> rubricValues;
+
+    public Rubric(){}
 
     public Rubric(Item item) {
         this.item = item;
-        this.rubricValues = new ArrayList<RubricValue>();
+        this.value = null;
+        this.description = null;
     }
 
-    public Rubric(Item item, ArrayList<RubricValue> rubricValues) {
+    public Rubric(Item item, Integer value, String description) {
         this.item = item;
-        this.rubricValues = rubricValues;
+        this.value = value;
+        this.description = description;
+//        this.rubricValues = new ArrayList<RubricValue>();
     }
+
+    public Integer getId() { return this.id; }
+    public void setId(Integer id) { this.id = id; }
+
+    public Integer getValue(){ return this.value; }
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+    public void setDescription(String description){
+        this.description = description;
+    }
+
+//    public Rubric(Item item, ArrayList<RubricValue> rubricValues) {
+//        this.item = item;
+//        this.rubricValues = rubricValues;
+//    }
 
     public Item getItem(){
         return this.item;
     }
-
     public void setItem(Item item){
         this.item = item;
     }
 
-    public void addRubricValue(RubricValue rubricValue) {
-        this.rubricValues.add(rubricValue);
-    }
+//    public void addRubricValue(RubricValue rubricValue) {
+//        this.rubricValues.add(rubricValue);
+//    }
+//
+//    public void removeRubricValue(RubricValue rubricValue) {
+//        this.rubricValues.remove(rubricValue);
+//    }
 
-    public void removeRubricValue(RubricValue rubricValue) {
-        this.rubricValues.remove(rubricValue);
-    }
-
-    public int getSize(){
-        return this.rubricValues.size();
-    }
+//    public int getSize(){
+//        return this.rubricValues.size();
+//    }
 }

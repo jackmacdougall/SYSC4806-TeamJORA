@@ -1,6 +1,7 @@
 package springboot.Model;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="items")
@@ -11,8 +12,8 @@ public class Item {
     private String name = null;
     private String description = null;
 
-//    @OneToOne
-//    private Rubric rubric = null;
+//    @OneToMany
+//    private List<Rubric> rubrics = null;
 
     public Item() {}
 
@@ -41,11 +42,11 @@ public class Item {
         this.description = description;
     }
 
-//    public Rubric getRubric(){
-//        return this.rubric;
+//    public List<Rubric> getRubric(){
+//        return this.rubrics;
 //    }
 //
-//    public void setRubric(Rubric rubric){
-//        this.rubric = rubric;
+//    public void addRubric(Rubric rubric){
+//        this.rubrics.add(rubric);
 //    }
 }
