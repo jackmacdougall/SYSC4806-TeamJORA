@@ -11,19 +11,39 @@ public class Rubric {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
 
-    @OneToOne
-    private Item item = null;
+    @ManyToOne
+    private Item item;
+
+    private Integer value = null;
+    private String description = null;
 
 //    @OneToMany
 //    private List<RubricValue> rubricValues;
 
     public Rubric(){
-        this.rubricValues = new ArrayList<RubricValue>();
+//        this.rubricValues = new ArrayList<RubricValue>();
     }
 
-    public Rubric(Item item) {
+    public Rubric(Item item, Integer value, String description) {
         this.item = item;
+        this.value = value;
+        this.description = description;
 //        this.rubricValues = new ArrayList<RubricValue>();
+    }
+
+    public Integer getValue(){
+        return this.value;
+    }
+
+    public void setValue(Integer value) {
+        this.value = value;
+    }
+
+    public String getDescription(){
+        return this.description;
+    }
+    public void setDescription(String description){
+        this.description = description;
     }
 
 //    public Rubric(Item item, ArrayList<RubricValue> rubricValues) {
@@ -35,6 +55,8 @@ public class Rubric {
         return this.item;
     }
 
+    public void addToItem(Integer id) { }
+    public void addToItem(Item item) { this.item = item; }
     public void setItem(Item item){
         this.item = item;
     }
@@ -47,7 +69,7 @@ public class Rubric {
 //        this.rubricValues.remove(rubricValue);
 //    }
 
-    public int getSize(){
-        return this.rubricValues.size();
-    }
+//    public int getSize(){
+//        return this.rubricValues.size();
+//    }
 }
