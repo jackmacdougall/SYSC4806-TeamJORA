@@ -14,14 +14,18 @@ public class Rubric {
     @ManyToOne
     private Item item;
 
-    private Integer value = null;
-    private String description = null;
+    private Integer value;
+    private String description;
 
 //    @OneToMany
 //    private List<RubricValue> rubricValues;
 
-    public Rubric(){
-//        this.rubricValues = new ArrayList<RubricValue>();
+    public Rubric(){}
+
+    public Rubric(Item item) {
+        this.item = item;
+        this.value = null;
+        this.description = null;
     }
 
     public Rubric(Item item, Integer value, String description) {
