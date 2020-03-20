@@ -3,18 +3,27 @@ package springboot.Model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "persons")
 public class Student extends Person {
+
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
+    private String name = null;
+    private String type = null;
     private Integer studentNumber = null;
     private Boolean inGroup = false;
 
     @ManyToOne(cascade = CascadeType.ALL)
     private Group group;
 
-    public Student() {}
+    public Student() { this.type = "Student"; }
+
+    public Student(String name){
+        super(name, "Student");
+        this.name = super.getName();
+        this.type = super.getType();
+    }
+
     public Student(String name, Integer studentNumber) {
         super(name, "Student");
         this.studentNumber = studentNumber;
@@ -25,6 +34,24 @@ public class Student extends Person {
         this.group = group;
         setInGroup();
     }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = "Instructor";
+    }
+
+    public Integer getId() { return this.id; }
+
+    public String getName() { return this.name; }
+
+    public String getType() { return this.type; }
 
     public Integer getStudentNumber(){
         return this.studentNumber;
@@ -56,3 +83,4 @@ public class Student extends Person {
 
     private void clearInGroup(){this.inGroup = false;}
 }
+
