@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Group</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form th:action="@{/rubric/}" th:object="${rubric}" method="post">
+        <p> Enter new rubric value: <input type="text" th:field="*{value}"/></p>
+        <p> Enter new rubric description: <input type="text" th:field="*{description}" /></p>
+        <p> Current item: <input type="text" th:field="*{item}" th:value="${item.id}" th:text="${item.name}" disabledtouc/></p>
+        <input type="submit" value="Add Rubric"/>
+    </form>
+    <a th:href="@{/}" th:text="Home"> Home </a>
+</body>
+</html>
