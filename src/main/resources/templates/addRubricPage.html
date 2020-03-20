@@ -9,7 +9,7 @@
     <form th:action="@{/rubric/}" th:object="${rubric}" method="post">
         <p> Enter new rubric value: <input type="text" th:field="*{value}"/></p>
         <p> Enter new rubric description: <input type="text" th:field="*{description}" /></p>
-        <p> Current item: <input type="text" th:field="*{item}" th:value="${item.id}" disabled/></p>
+        <p> Current item: <input type="text" th:field="*{Item}" th:value="${item.id}"/></p>
         <input type="submit" value="Add Rubric"/>
     </form>
     <a th:href="@{/}"><button>Home</button></a>

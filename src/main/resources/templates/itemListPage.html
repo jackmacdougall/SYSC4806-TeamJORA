@@ -20,9 +20,10 @@
         <td><span th:text="${item.name}"> Name </span></td>
         <td th:each="rubric : ${rubric}"
             th:object="${rubric}"
-            th:if="${rubric.getItem()} eq ${item}"></td>
+            th:if="${rubric.getItem()} eq ${item}"
+            th:text="${rubric.getDescription()}">description</td>
         <td>
-            <a th:href="@{/rubric/(item=${item.getId()})}">Add New Rubric</a>
+            <a th:href="@{/rubric/(item=${item.getId()})}"><Button>Add New Rubric</Button></a>
         </td>
     </tr>
     </tbody>
