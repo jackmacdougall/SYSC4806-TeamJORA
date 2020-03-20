@@ -7,11 +7,10 @@ Make an application that will allow students to evaluate their peers.  An Model.
   Application: For back-end processes\
   Model: Where the data model and crudrepositories of the application are located\
   Controller: Where the controllers that hook up the front and back ends are located\
-  client: Where the front-end is located\
+  Service: The intermediary between the controllers and the repositories
   
 # Setup
-    Run class BootApplication in springboot package as main class.\
-    Once it's running, enter this url to your browser - http://localhost:8081/jorahome
+    Use this heroku url - https://peerassessmenttool-jora.herokuapp.com/, in order to run the application. Note that it uses a postgresql database fir persistence 
  
 # UML Class Diagram
 ![UML Class Diagram](https://github.com/jackmacdougall/SYSC4806-TeamJORA/blob/master/Docs/UML%20Diagram%20v.01.png)
