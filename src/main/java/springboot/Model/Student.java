@@ -3,8 +3,8 @@ package springboot.Model;
 import javax.persistence.*;
 
 @Entity
+@Table(name = "persons")
 public class Student extends Person {
-
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id = null;
