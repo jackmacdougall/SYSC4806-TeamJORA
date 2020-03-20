@@ -43,6 +43,7 @@ public class ItemController {
     public String addItem(@ModelAttribute Item item, Model model) {
         service.addItem(item);
         model.addAttribute("item", service.getAllItems());
+        model.addAttribute("rubric", rubricService.getAllRubrics());
         return "itemListPage";
     }
 }

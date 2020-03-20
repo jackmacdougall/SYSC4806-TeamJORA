@@ -30,7 +30,8 @@ public class RubricController {
     @GetMapping(value="/")
     public String addRubricPage(@RequestParam Integer item, @ModelAttribute Rubric rubric, Model model) {
         model.addAttribute("item", itemService.findById(item));
-        model.addAttribute("rubric", new Rubric(itemService.findById(item)));
+        Rubric newRubric = new Rubric(itemService.findById(item));
+        model.addAttribute("rubric", newRubric);
         return "addRubricPage";
     }
 
