@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table id="itemTable">
+    <thead>
+    <tr>
+        <th> List of Criteria </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${item.empty}">
+        <td colspan="2"> No Criteria Listed </td>
+    </tr>
+    <tr th:each="item : ${item}">
+        <td><span th:text="${item.name}"> Name </span></td>
+        <td th:each="rubric : ${rubric}"
+            th:object="${rubric}"
+            th:if="${rubric.getItem()} eq ${item}"
+            th:text="${rubric.getDescription()}">description</td>
+        <td>
+            <a th:href="@{/rubric/(item=${item.getId()})}"><Button>Add New Rubric</Button></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/}" method="get">
+    <input type="submit" Value="Home Page"/>
+</form>
+</body>
+</html>
