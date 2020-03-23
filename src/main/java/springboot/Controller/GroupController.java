@@ -35,7 +35,8 @@ public class GroupController {
     }
 
     @GetMapping(value = "/addGroupPage")
-    public String addGroupPage(Model model){
+
+    public String addGroupPage(@ModelAttribute Group group, Model model){
         model.addAttribute("group", new Group());
         return "addGroupPage";
     }
