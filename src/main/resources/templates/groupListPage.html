@@ -16,9 +16,22 @@
     <tr th:if="${groups.empty}">
         <td colspan="2"> No Groups Listed </td>
     </tr>
-    <tr th:each="group : ${groups}">
-        <td><span th:text="${group.name}"> Name </span></td>
-    </tr>
+<!--    <tr th:each="group : ${groups}">-->
+<!--        <td>-->
+<!--            <span th:text="${group.name}"> Name </span>-->
+<!--            <a th:href="@{(group=${group.getId()})}"><Button>Add Students</Button></a>-->
+<!--        </td>-->
+<!--    </tr>-->
+    <select>
+        <option th:each="group : ${groups}"
+                th:text="${group.name}"> Name </option>
+    </select>
+    <a th:href="@{(group=${group.getId()})}"><Button>Add Students</Button></a>
+<!--    <select th:field="${group}">-->
+<!--        <option th:each="group : ${groups}"-->
+<!--                th:value="${group.name}">-->
+<!--        </option>-->
+<!--    </select>-->
     </tbody>
 </table>
 <form th:action="@{/}" method="get">
