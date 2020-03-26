@@ -15,6 +15,19 @@ public class ResultService {
 
     public Iterable<Result> getAllResultsByStudent(Student student) { return resultRepository.findByStudent(student); }
 
+    public Double getStudentAverageResult(Student student) {
+        Double resultRubricTotal = 0.0;
+        int resultCounter = 0;
+        for(Result result : resultRepository.findByStudent(student)){
+            resultRubricTotal += result.getRubric().getValue();
+            resultCounter++;
+        }
+        if (resultCounter > 0){
+            return resultRubricTotal/resultCounter;
+        }
+        else return 0.0;
+    }
+
     public void addResult(Result result) { resultRepository.save(result); }
 }
 

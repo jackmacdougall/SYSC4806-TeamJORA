@@ -12,13 +12,14 @@ public class Result {
     @ManyToOne(cascade = CascadeType.ALL)
     private Student student;
 
-    private Integer value;
+    @ManyToMany(cascade = CascadeType.ALL)
+    private Rubric rubric;
 
     public Result(){}
 
-    public Result(Student student, Integer value){
+    public Result(Student student, Rubric rubric){
         this.student = student;
-        this.value = value;
+        this.rubric = rubric;
     }
 
     public Integer getId() {
@@ -33,8 +34,8 @@ public class Result {
         this.student = student;
     }
 
-    public Integer getValue() { return this.value; }
+    public Rubric getRubric() { return this.rubric; }
 
-    public void setValue(Integer value) { this.value = value; }
+    public void setRubric(Rubric rubric) { this.rubric = rubric; }
 
 }
