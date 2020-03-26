@@ -12,7 +12,7 @@ public class Result {
     @ManyToOne(cascade = CascadeType.ALL)
     private Student student;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Rubric rubric;
 
     public Result(){}
