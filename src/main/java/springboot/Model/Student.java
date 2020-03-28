@@ -66,7 +66,7 @@ public class Student extends Person {
         this.studentNumber = studentNumber;
     }
 
-    public void addToGroup(Group group){
+    public void joinGroup(Group group){
         this.group = group;
         group.addStudent(this);
         setInGroup();
