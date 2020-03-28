@@ -23,7 +23,7 @@ public class GroupController {
 
     @GetMapping(value = "/addGroupPage")
     public String addGroupPage(Model model){
-        model.addAttribute("newGroup", new Group());
+        model.addAttribute("group", new Group());
         return "addGroupPage";
     }
 
