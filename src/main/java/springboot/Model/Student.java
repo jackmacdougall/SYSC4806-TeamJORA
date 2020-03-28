@@ -14,14 +14,19 @@ public class Student extends Person {
     private Boolean inGroup = false;
 
     @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn
     private Group group;
 
-    public Student() { this.type = "Student"; }
+    public Student() {
+        this.type = "Student";
+        this.inGroup = false;
+    }
 
     public Student(String name){
         super(name, "Student");
         this.name = super.getName();
         this.type = super.getType();
+        this.inGroup = false;
     }
 
     public Student(String name, Integer studentNumber) {
@@ -63,16 +68,15 @@ public class Student extends Person {
 
     public void addToGroup(Group group){
         this.group = group;
+        group.addStudent(this);
+        setInGroup();
     }
+
     public void setGroup(Group group){
         this.group = group;
         setInGroup();
     }
 
-    public void leaveGroup(){
-        setGroup(null);
-        clearInGroup();
-    }
     public Boolean isInGroup(){
         return this.inGroup;
     }
