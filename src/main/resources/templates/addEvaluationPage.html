@@ -6,12 +6,21 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body>
-    <form th:action="@{/rubric/}" th:object="${rubric}" method="post">
-        <p> Enter new rubric value: <input type="text" th:field="*{value}"/></p>
-        <p> Enter new rubric description: <input type="text" th:field="*{description}" /></p>
-        <p> Current item: <input type="text" th:field="*{Item}" th:value="${item.id}"/></p>
-        <input type="submit" value="Add Rubric"/>
-    </form>
+    <span th:if="${user.empty}">
+        Please login
+    </span>
+    <span>
+        <form th:action="@{/evaluation/}" th:object="${evaluation}" method="post" id="evaluation form">
+            <select th:field="student">
+                <option th:each="student: ${students}" th:value="${student}" th:text="${student.getName()}"></option>
+            </select>
+            <select th:field="rubric">
+                <option th:each="rubric: ${rubrics}" th:value="${rubric}" th:text="${rubric.getValue()}"></option>
+            </select>
+            <input type="Submit" value="Add Evaluation" />
+        </form>
+    </span>
+
     <a th:href="@{/}"><button>Home</button></a>
 </body>
 </html>
