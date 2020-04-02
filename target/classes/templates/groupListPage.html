@@ -18,16 +18,13 @@
     </tr>
     <tr th:each="group : ${groups}">
         <td>
+            <form th:action="@{/group/joingroup}" method="post">
             <span th:text="${group.name}"> Name </span>
             <span th:text="${group.getId()}"> ID </span>
-
+            <span th:text="${group.students.findByName()}"> Students</span>
 <!--            <a th:href="@{(group=${group.getId()})}"><Button>Join Group</Button></a>-->
+            <input type="submit" value="Join Group"/>
 
-            <form th:action="@{/joinGroup/}" th:object="${group}" method="post" id="group form">
-                <select th:field="*{student}">
-                    <option th:each="student: ${students}" th:value="${student.getId()}" th:text="${student.getName()}"></option>
-                </select>
-                <input type="Submit" value="Add Student to Group" />
             </form>
         </td>
     </tr>
@@ -36,7 +33,7 @@
                 th:text="${group.name}"> Name </option>
     </select>
 
-    <a th:href="@{(group=${group.getId()})}"><Button>Join Group</Button></a>
+<!--    <a th:href="@{(group=${group.getId()})}"><Button>Join Group</Button></a>-->
     </tbody>
 </table>
 <form th:action="@{/}" method="get">

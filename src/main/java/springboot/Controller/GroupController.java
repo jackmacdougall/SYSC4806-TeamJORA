@@ -54,8 +54,21 @@ public class GroupController {
         return "groupListPage";
     }
 
-//    @PostMapping(value = "/joingroup")
-//    public String joinGroup(@ModelAttribute("group") Group group, Model model){
-//        service.getGroup(group.getId()).
-//    }
+    @PostMapping(value = "/joingroup")
+    public String joinGroup(@ModelAttribute("group") Group group, Model model){
+        Object o = personService.getUser();
+        if(o != null) {
+            if (o instanceof Student) {
+                Student person = (Student) o;
+                if(!group.isStudentInGroup(person)) {
+                    group.addStudent(person);
+                }
+            }
+            else if (o instanceof Instructor){
+                Instructor person = (Instructor) o;
+            }
+        }
+        model.addAttribute("groups", service.getAllGroups());
+        return "groupListPage";
+    }
 }
