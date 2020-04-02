@@ -25,7 +25,7 @@ public class RubricController {
     }
 
 
-    @GetMapping(value="/showall")
+    @GetMapping(value="/all")
     public String rubricListPage(Model model) {
         model.addAttribute("rubric", service.getAllRubrics());
         return "rubricListPage";
@@ -44,12 +44,6 @@ public class RubricController {
         service.addRubric(rubric);
         model.addAttribute("rubric", service.getAllRubrics());
         model.addAttribute("item", itemService.getAllItems());
-        return "itemListPage";
-    }
-
-    @GetMapping(value = "/all")
-    public String allRubrics(Model model, @RequestParam Item item) {
-        model.addAttribute("rubric", service.getAllRubricsByItem(item));
         return "itemListPage";
     }
 

@@ -56,7 +56,7 @@ public class RubricIntegrationTest {
 
     @Test
     public void testLoadRubricListPage() throws Exception {
-        this.mockMvc.perform(get("/rubric/showall"))
+        this.mockMvc.perform(get("/rubric/all"))
                 .andExpect(status().isOk())
                 .andExpect(view().name("Peer Assessment Tool | Rubric List"))
                 .andExpect(model().attributeExists("rubric"))
