@@ -17,8 +17,17 @@
         <td colspan="3"> No Criteria Listed </td>
     </tr>
     <tr th:each="person : ${person}">
-        <td><span th:text="${person.name}"> Name </span></td>
-        <td><span th:text="${person.type}"> Name </span></td>
+        <td><span th:text="${person.name}"></span></td>
+        <td><span th:text="${person.type}"></span></td>
+        <td th:switch="${person.type}">
+            <form th:case="'Student'" th:action="@{/person/selectUser}" th:object=${person.name} method="post">
+                <input Value="Select User" type="submit"/>
+            </form>
+            <form th:case="'Instructor'" th:action="@{/person/selectUser}" th:object=${person.name} method="post">
+                <input type="submit" Value="Select User"/>
+            </form>
+
+        </td>
     </tr>
     </tbody>
 </table>

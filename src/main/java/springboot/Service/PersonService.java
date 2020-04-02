@@ -17,4 +17,6 @@ public class PersonService {
     public void addPerson(Person person){
         personRepository.save(person);
     }
+
+    public Person getPerson(String name) {return personRepository.findByName(name);}
 }

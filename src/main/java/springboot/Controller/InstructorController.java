@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import springboot.Model.Instructor;
+import springboot.Model.Person;
+import springboot.Model.User;
 import springboot.Service.InstructorService;
 import springboot.Service.PersonService;
 
