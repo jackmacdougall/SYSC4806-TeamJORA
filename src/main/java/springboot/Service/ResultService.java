@@ -16,7 +16,7 @@ public class ResultService {
 
     public Result getById(Integer id) { return resultRepository.findById(id).get(); }
 
-    public Iterable<Result> getAllResultsByStudent(Student student) { return resultRepository.findByStudent(student).get(); }
+    public Iterable<Result> getAllResultsByStudent(Student student) { return resultRepository.findByStudent(student); }
 
     public Double getStudentAverageResult(Student student) {
         Double resultRubricTotal = 0.0;
