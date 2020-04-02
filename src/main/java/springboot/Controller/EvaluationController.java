@@ -36,7 +36,6 @@ public class EvaluationController {
     public String getEvaluation(
             @RequestParam(required = false) Integer id,
             @RequestParam(required = false) Integer studentId,
-            @RequestParam(required = false) Integer rubricId,
             Model model) {
         if (id != null) {
             model.addAttribute("evaluations", resultService.getById(id));
