@@ -7,7 +7,7 @@
 </head>
 <body>
     <form th:action="@{/rubric/}" th:object="${rubric}" method="post">
-        <p> Enter new rubric value: <input type="text" th:field="*{value}"/></p>
+        <p> Enter new rubric value: <input type="number" th:field="*{value}"/></p>
         <p> Enter new rubric description: <input type="text" th:field="*{description}" /></p>
         <input type="hidden" th:field="*{Item}" th:value="${item.id}"/>
         <input type="submit" value="Add Rubric"/>
