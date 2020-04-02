@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import springboot.Model.Result;
+import springboot.Model.Student;
 import springboot.Service.*;
 
 @Controller
@@ -28,7 +29,7 @@ public class EvaluationController {
     public String addEvaluation(@ModelAttribute Result result, Model model) {
         this.resultService.addResult(result);
         model.addAttribute("evaluations", resultService.getAllResults());
-        return "evaluationListPage";
+        return "addEvaluationPage";
     }
 
     @GetMapping(value = "/")
@@ -49,10 +50,12 @@ public class EvaluationController {
 
     @GetMapping(value = "/add")
     public String addEvaluationPage(Model model) {
-        model.addAttribute("evaluation", new Result());
+        Student user = (Student) personService.getUser();
+        model.addAttribute("result", new Result());
         model.addAttribute("students", studentService.getAllStudents());
+//        model.addAttribute("students", studentService.getByGroup(user.getGroup()));
         model.addAttribute("rubrics", rubricService.getAllRubrics());
-        model.addAttribute("user", personService.getUser());
+        model.addAttribute("user", user);
         model.addAttribute("items", itemService.getAllItems());
         return "addEvaluationPage";
     }
