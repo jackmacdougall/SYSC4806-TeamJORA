@@ -2,10 +2,7 @@ package springboot.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import springboot.Model.Person;
 import springboot.Model.User;
@@ -32,10 +29,9 @@ public class PersonController {
     }
 
     @PostMapping(value = "/selectUser")
-    public String setPersonAsUser (String name, Model model){
-        User.person = service.getPerson(name);
+    public String setPersonAsUser (@RequestParam Integer userId, Model model) {
+        model.addAttribute("user", service.getPerson(userId));
         model.addAttribute("person", service.getAllPersons());
-        System.out.println("user is " + User.person.getName());
         return "personListPage";
     }
 }

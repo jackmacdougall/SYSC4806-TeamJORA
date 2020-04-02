@@ -19,14 +19,10 @@
     <tr th:each="person : ${person}">
         <td><span th:text="${person.name}"></span></td>
         <td><span th:text="${person.type}"></span></td>
-        <td th:switch="${person.type}">
-            <form th:case="'Student'" th:action="@{/person/selectUser}" th:object="${person.name}" method="post">
+        <td>
+            <form th:action="@{/person/selectUser/(userId=${person.getId()})}" method="post">
                 <input Value="Select User" type="submit"/>
             </form>
-            <form th:case="'Instructor'" th:action="@{/person/selectUser}" th:object="${person.name}" method="post">
-                <input type="submit" Value="Select User"/>
-            </form>
-
         </td>
     </tr>
     </tbody>

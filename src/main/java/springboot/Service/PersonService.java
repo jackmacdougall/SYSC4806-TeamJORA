@@ -18,5 +18,5 @@ public class PersonService {
         personRepository.save(person);
     }
 
-    public Person getPerson(String name) {return personRepository.findByName(name);}
+    public Person getPerson(Integer id) {return personRepository.findById(id).get();}
 }
