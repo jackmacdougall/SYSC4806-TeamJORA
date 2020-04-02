@@ -9,7 +9,8 @@
 <table id="personTable">
     <thead>
         <tr><th> List of People </th></tr>
-        <tr><th> Name </th>
+        <tr><th> ID </th>
+            <th> Name </th>
             <th> Type </th></tr>
     </thead>
     <tbody>
@@ -17,8 +18,18 @@
         <td colspan="3"> No Criteria Listed </td>
     </tr>
     <tr th:each="person : ${person}">
-        <td><span th:text="${person.name}"> Name </span></td>
-        <td><span th:text="${person.type}"> Name </span></td>
+        <td><span th:text="${person.id}"></span></td>
+        <td><span th:text="${person.name}"></span></td>
+        <td><span th:text="${person.type}"></span></td>
+        <td th:switch="${person.type}">
+            <form th:case="'Student'" th:action="@{/person/selectUser/(user=${person.getId()})}" method="post">
+                <input Value="Select User" type="submit"/>
+            </form>
+            <form th:case="'Instructor'" th:action="@{/person/selectUser/(user=${person.getId()})}" method="post">
+                <input type="submit" Value="Select User"/>
+            </form>
+
+        </td>
     </tr>
     </tbody>
 </table>

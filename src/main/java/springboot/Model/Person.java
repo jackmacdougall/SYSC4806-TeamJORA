@@ -15,17 +15,20 @@ public abstract class Person {
     private Integer id = null;
     private String name = null;
     private String type = null;
+    private Boolean isUser = null;
 
-    public Person() {}
+    public Person() { this.isUser = false; }
 
     public Person(String name){
         this.name = name;
+        this.isUser = false;
         type = "Student";
     }
 
     public Person(String name, String type){
         this.name = name;
         this.type = type;
+        this.isUser = false;
     }
 
     public Integer getId(){
@@ -43,5 +46,13 @@ public abstract class Person {
     public String getType(){
         return this.type;
     }
+
+    public Boolean isUser(){
+        return this.isUser;
+    }
+
+    public void setAsUser(){ this.isUser = true; }
+
+    public void stopBeingUser() { this.isUser = false; }
 
 }

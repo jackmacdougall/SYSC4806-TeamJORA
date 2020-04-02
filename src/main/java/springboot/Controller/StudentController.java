@@ -2,12 +2,11 @@ package springboot.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import springboot.Model.Instructor;
+import springboot.Model.Person;
 import springboot.Model.Student;
+import springboot.Model.User;
 import springboot.Service.PersonService;
 
 @Controller
@@ -27,9 +26,11 @@ public class StudentController {
     }
 
     @PostMapping(value = "/add")
-    public String addInstructor(@ModelAttribute Student student, Model model) {
+            public String addInstructor( @ModelAttribute Student student, Model model) {
         service.addPerson(student);
         model.addAttribute("person", service.getAllPersons());
         return "personListPage";
     }
+
+
 }

@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import springboot.Model.Item;
 import springboot.Model.Rubric;
 import springboot.Service.ItemService;
+import springboot.Service.PersonService;
 import springboot.Service.RubricService;
 
 @Controller
@@ -15,11 +16,14 @@ import springboot.Service.RubricService;
 public class RubricController {
     private final RubricService service;
     private final ItemService itemService;
+    private final PersonService personService;
 
-    private RubricController(RubricService service, ItemService itemService) {
+    private RubricController(RubricService service, ItemService itemService, PersonService personService) {
         this.service = service;
         this.itemService = itemService;
+        this.personService = personService;
     }
+
 
     @GetMapping(value="/showall")
     public String rubricListPage(Model model) {

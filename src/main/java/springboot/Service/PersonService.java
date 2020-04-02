@@ -17,4 +17,25 @@ public class PersonService {
     public void addPerson(Person person){
         personRepository.save(person);
     }
+
+    public Person getPerson(String name) {return personRepository.findByName(name);}
+
+    public Person getPersonById(Integer id) { return personRepository.findById(id).get();}
+
+    public Person getUser() { return personRepository.findByIsUser(true);}
+
+    public void clearUser() {
+        if(personRepository.findByIsUser(true) != null) {
+            Person user = personRepository.findByIsUser(true);
+            user.stopBeingUser();
+        }
+    }
+
+    public void setUser(Integer id){
+        clearUser();
+        Person newUser = personRepository.findById(id).get();
+        newUser.setAsUser();
+    }
 }
+
+

@@ -10,15 +10,19 @@ import springboot.Model.Student;
 import springboot.Model.Group;
 import springboot.Model.StudentRepository;
 import springboot.Service.GroupService;
+import springboot.Service.PersonService;
 
 @Controller
 @RequestMapping("/group")
 public class GroupController {
 
     private final GroupService service;
+    private final PersonService personService;
 
-    public GroupController(GroupService service) {
+    public GroupController(GroupService service, PersonService personService) {
+
         this.service = service;
+        this.personService = personService;
     }
 
     @GetMapping(value = "/addGroupPage")

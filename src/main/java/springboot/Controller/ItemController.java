@@ -2,12 +2,10 @@ package springboot.Controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import springboot.Model.*;
 import springboot.Service.ItemService;
+import springboot.Service.PersonService;
 import springboot.Service.RubricService;
 
 @Controller
@@ -16,14 +14,16 @@ public class ItemController {
 
     private final ItemService service;
     private final RubricService rubricService;
+    private final PersonService personService;
 
 //    private ItemController(ItemService service){
 //        this.service = service;
 //    }
 
-    private ItemController(ItemService service, RubricService rubricService){
+    private ItemController(ItemService service, RubricService rubricService, PersonService personService){
         this.service = service;
         this.rubricService = rubricService;
+        this.personService = personService;
     }
 
     @GetMapping(value = "/addItemPage")
@@ -46,4 +46,5 @@ public class ItemController {
         model.addAttribute("rubric", rubricService.getAllRubrics());
         return "itemListPage";
     }
+
 }
