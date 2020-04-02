@@ -17,4 +17,6 @@ public class GroupService {
     public void addGroup(Group group){
         groupRepository.save(group);
     }
+
+    //public Group getGroup(Integer id) { return groupRepository.findById(id); }
 }

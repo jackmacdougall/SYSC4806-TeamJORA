@@ -48,9 +48,14 @@ public class GroupController {
     }
 
     @PostMapping(value = "/add")
-    public String addGroup(@ModelAttribute("group") Group group, Model model) {
+    public String addGroup(@ModelAttribute("group") Group group, Model model){
         service.addGroup(group);
         model.addAttribute("groups", service.getAllGroups());
         return "groupListPage";
     }
+
+//    @PostMapping(value = "/joingroup")
+//    public String joinGroup(@ModelAttribute("group") Group group, Model model){
+//        service.getGroup(group.getId()).
+//    }
 }

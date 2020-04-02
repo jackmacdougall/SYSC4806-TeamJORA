@@ -20,28 +20,23 @@
         <td>
             <span th:text="${group.name}"> Name </span>
             <span th:text="${group.getId()}"> ID </span>
-            <a th:href="@{(group=${group.getId()})}">
-                <td th:switch="${person.type}">
-                    <form th:case="'Student'" th:action="@{/person/selectUser/(user=${person.getId()})}" method="post">
-                        <input Value="Select User" type="submit"/>
-                    </form>
-                    <form th:case="'Instructor'" th:action="@{/person/selectUser/(user=${person.getId()})}" method="post">
-                        <input type="submit" Value="Select User"/>
-                    </form>
-                </td>
-            </a>
+
+<!--            <a th:href="@{(group=${group.getId()})}"><Button>Join Group</Button></a>-->
+
+            <form th:action="@{/joinGroup/}" th:object="${group}" method="post" id="group form">
+                <select th:field="*{student}">
+                    <option th:each="student: ${students}" th:value="${student.getId()}" th:text="${student.getName()}"></option>
+                </select>
+                <input type="Submit" value="Add Student to Group" />
+            </form>
         </td>
     </tr>
     <select>
         <option th:each="group : ${groups}"
                 th:text="${group.name}"> Name </option>
     </select>
+
     <a th:href="@{(group=${group.getId()})}"><Button>Join Group</Button></a>
-<!--    <select th:field="${group}">-->
-<!--        <option th:each="group : ${groups}"-->
-<!--                th:value="${group.name}">-->
-<!--        </option>-->
-<!--    </select>-->
     </tbody>
 </table>
 <form th:action="@{/}" method="get">
