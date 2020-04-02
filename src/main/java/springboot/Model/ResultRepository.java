@@ -8,4 +8,6 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "results", path = "results")
 public interface ResultRepository extends CrudRepository<Result, Integer> {
     List<Result> findByStudent(Student student);
+
+    List<Result> findByRubric(Rubric rubric);
 }
