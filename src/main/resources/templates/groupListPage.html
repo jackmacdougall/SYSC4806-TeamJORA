@@ -19,7 +19,17 @@
     <tr th:each="group : ${groups}">
         <td>
             <span th:text="${group.name}"> Name </span>
-            <a th:href="@{(group=${group.getId()})}"><Button>Add Students</Button></a>
+            <span th:text="${group.getId()}"> ID </span>
+            <a th:href="@{(group=${group.getId()})}">
+                <td th:switch="${person.type}">
+                    <form th:case="'Student'" th:action="@{/person/selectUser/(user=${person.getId()})}" method="post">
+                        <input Value="Select User" type="submit"/>
+                    </form>
+                    <form th:case="'Instructor'" th:action="@{/person/selectUser/(user=${person.getId()})}" method="post">
+                        <input type="submit" Value="Select User"/>
+                    </form>
+                </td>
+            </a>
         </td>
     </tr>
     <select>

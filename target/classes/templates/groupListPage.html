@@ -19,7 +19,8 @@
     <tr th:each="group : ${groups}">
         <td>
             <span th:text="${group.name}"> Name </span>
-            <a th:href="@{(group=${group.getId()})}"><Button>Add Students</Button></a>
+            <span th:text="${group.getId()}"> ID </span>
+            <a th:href="@{(group=${group.getId()})}"><Button>Join Group</Button></a>
         </td>
     </tr>
     <select>
