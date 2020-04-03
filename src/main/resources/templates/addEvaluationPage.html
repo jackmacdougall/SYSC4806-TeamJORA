@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PeerAssessmentTool | Add New Evaluation </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<!--    <span th:if="${user.empty}">-->
+<!--        Please login-->
+<!--    </span>-->
+    <span>
+<!--Evaluation by Item-->
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Evaluation</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="item: ${items}">
+                    <td th:text="${item.getName()}"> Item Name </td>
+                    <td>
+                        <form th:action="@{/evaluation/}" th:object="${result}" method="post" id="evaluation form">
+                            <select th:field="*{student}">
+                                <option th:each="student: ${students}" th:value="${student.getId()}" th:text="${student.getName()}"></option>
+                            </select>
+                            <select th:field="*{rubric}">
+                                <option th:each="rubric: ${rubrics}" th:if="${item} eq ${rubric.getItem()}" th:value="${rubric.getId()}" th:text="${rubric.getValue() + ' - ' + rubric.getDescription()}"></option>
+                            </select>
+                            <input type="Submit" value="Add Evaluation" />
+                        </form>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </span>
+
+    <div><a th:href="@{/evaluation/}"><button>View All Evaluations</button></a></div>
+    <div><a th:href="@{/}"><button>Home</button></a></div>
+</body>
+</html>

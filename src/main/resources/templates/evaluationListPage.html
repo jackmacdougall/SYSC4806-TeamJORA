@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>PeerAssessmentTool | Evaluations </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <table>
+        <thead>
+            <th>Item</th>
+            <th>Student</th>
+            <th>Evaluations</th>
+        </thead>
+        <tbody>
+            <tr th:each="result : ${evaluations}">
+                <td th:text="${result.getRubric().getItem().getName()}"> Item Name </td>
+                <td th:text="${result.getStudent().getName()}">
+                    Student
+                </td>
+                <td th:text="${result.getRubric().getValue() + ' - ' + result.getRubric().getDescription()}">
+                    description
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div><a th:href="@{/evaluation/add}"><button>Add New Evaluation</button></a></div>
+    <div><a th:href="@{/}"><button>Home</button></a></div>
+</body>
+</html>
