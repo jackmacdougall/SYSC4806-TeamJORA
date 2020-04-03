@@ -33,10 +33,9 @@ public class ItemController {
     @GetMapping(value = "/addItemPage")
     public String addItemPage(@ModelAttribute Item item, Model model) {
         Boolean authorized = false;
-        for(Person p : personService.getAllPersons()) {
-            if(p.isUser() && (p.getType().equals(Person.Type.INSTRUCTOR.toString()))) {
-                authorized = true;
-            }
+        Person user = personService.getUser();
+        if (user != null && user.getType().equals("Instructor")){
+            authorized = true;
         }
         if(!authorized){ return "unauthorizedUser"; }
         model.addAttribute("item", new Item());
@@ -45,6 +44,12 @@ public class ItemController {
 
     @GetMapping(value = "/all")
     public String itemListPage(Model model) {
+        Boolean authorized = false;
+        Person user = personService.getUser();
+        if (user != null && user.getType().equals("Instructor")){
+            authorized = true;
+        }
+        if(!authorized){ return "unauthorizedUser"; }
         model.addAttribute("item", service.getAllItems());
         model.addAttribute("rubric", rubricService.getAllRubrics());
         return "itemListPage";
