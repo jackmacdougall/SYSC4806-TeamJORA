@@ -24,6 +24,9 @@
     </tr>
     </tbody>
 </table>
+<form th:action="@{/item/downloadReport/(studentID=${student.getId()})}" method="post">
+    <input type="submit" Value="Download CSV"/>
+</form>
 <form th:action="@{/item/all}" method="get">
     <input type="submit" Value="Back to Item List"/>
 </form>
