@@ -8,13 +8,13 @@
 <body>
 <table id="personTable">
     <thead>
-        <tr><th> Choose a Student to Generate </th></tr>
+        <tr><th> Choose a Student to Generate Report For </th></tr>
         <tr><th> ID </th>
             <th> Student </th></tr>
     </thead>
     <tbody>
     <tr th:if="${person.empty}">
-        <td colspan="3"> No Criteria Listed </td>
+        <td colspan="3"> There are no students to generate reports for </td>
     </tr>
     <tr th:each="person : ${person}">
         <td th:switch="${person.type}">

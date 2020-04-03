@@ -9,12 +9,14 @@
 <table id="itemTable">
     <thead>
     <tr>
-        <th> List of Criteria </th>
+        <th> List of Student Grades </th>
     </tr>
+    <tr><th> Item </th>
+        <th> Grade </th></tr>
     </thead>
     <tbody>
     <tr th:if="${item.empty}">
-        <td colspan="2"> No Criteria Listed </td>
+        <td> No Grades Available </td>
     </tr>
     <tr th:each="item : ${item}">
         <td><span th:text="${item.name}"></span></td>
@@ -22,8 +24,8 @@
     </tr>
     </tbody>
 </table>
-<form th:action="@{/item/selectReport}" method="get">
-    <input type="submit" Value="Generate Reports"/>
+<form th:action="@{/item/all}" method="get">
+    <input type="submit" Value="Back to Item List"/>
 </form>
 <form th:action="@{/}" method="get">
     <input type="submit" Value="Home Page"/>
