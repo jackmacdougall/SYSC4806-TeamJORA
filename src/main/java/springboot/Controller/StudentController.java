@@ -3,10 +3,7 @@ package springboot.Controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import springboot.Model.Instructor;
-import springboot.Model.Person;
 import springboot.Model.Student;
-import springboot.Model.User;
 import springboot.Service.PersonService;
 
 @Controller

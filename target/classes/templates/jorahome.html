@@ -27,6 +27,8 @@
     <form th:action="@{/rubric/showall}" method="get">
         <p><input type="submit" value="View All Rubrics"/></p>
     </form>
+    <a th:href="@{/evaluation/}"><button>Show All Evaluations</button></a>
+    <a th:href="@{/evaluation/add}"><button>Add New Evaluations</button></a>
     <form th:action="@{/person/all}" method="get">
         <p><input type="submit" value="Select Person"/></p>
     </form>
