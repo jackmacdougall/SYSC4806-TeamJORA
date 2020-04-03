@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>List of Persons</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table id="personTable">
+    <thead>
+        <tr><th> Choose a Student to Generate </th></tr>
+        <tr><th> ID </th>
+            <th> Student </th></tr>
+    </thead>
+    <tbody>
+    <tr th:if="${person.empty}">
+        <td colspan="3"> No Criteria Listed </td>
+    </tr>
+    <tr th:each="person : ${person}">
+        <td th:switch="${person.type}">
+            <span th:case="'Student'" th:text="${person.id}"></span>
+        </td>
+        <td th:switch="${person.type}">
+            <span th:case="'Student'" th:text="${person.name}"></span>
+        </td>
+        <td th:switch="${person.type}">
+            <form th:case="'Student'" th:action="@{/item/studentReport/(student=${person.getId()})}" method="post">
+                <input Value="Generate Report" type="submit"/>
+            </form>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/}" method="get">
+    <input type="submit" Value="Home Page"/>
+</form>
+</body>
+</html>

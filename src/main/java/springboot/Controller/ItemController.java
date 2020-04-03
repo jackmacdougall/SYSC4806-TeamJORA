@@ -47,4 +47,18 @@ public class ItemController {
         return "itemListPage";
     }
 
+    @GetMapping(value = "/selectReport")
+    public String generateReports (Model model){
+        model.addAttribute("person", personService.getAllPersons());
+        return "selectReport";
+    }
+
+    @PostMapping(value = "/studentReport")
+    public String studentReport (@RequestParam Integer student, Model model){
+        model.addAttribute("person", personService.getPersonById(student));
+        model.addAttribute("item", service.getAllItems());
+        model.addAttribute("rubric", rubricService.getAllRubrics());
+        return "studentReport";
+    }
+
 }

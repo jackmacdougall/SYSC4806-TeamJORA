@@ -17,15 +17,8 @@
         <td colspan="2"> No Criteria Listed </td>
     </tr>
     <tr th:each="item : ${item}">
-        <td><span th:text="${item.name}"> Name </span></td>
-        <td th:each="rubric : ${rubric}"
-            th:object="${rubric}"
-            th:if="${rubric.getItem()} eq ${item}"
-            th:text="${rubric.getDescription()}">description</td>
-        <td>
-            <a th:href="@{/rubric/(item=${item.getId()})}"><Button>Add New Rubric</Button></a>
-        </td>
-
+        <td><span th:text="${item.name}"></span></td>
+        <td><span th:text="${person.name}"></span></td>
     </tr>
     </tbody>
 </table>
