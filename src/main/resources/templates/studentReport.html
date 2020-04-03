@@ -20,7 +20,7 @@
     </tr>
     <tr th:each="item : ${item}">
         <td><span th:text="${item.name}"></span></td>
-        <td><span th:text="${person.name}"></span></td>
+        <td><span th:text="${student.getAverage(item, resultService)}"></span></td>
     </tr>
     </tbody>
 </table>
