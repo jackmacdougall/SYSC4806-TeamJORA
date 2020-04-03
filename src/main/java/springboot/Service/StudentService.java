@@ -22,4 +22,8 @@ public class StudentService {
     public void addStudent(Student student){
         studentRepository.save(student);
     }
+
+    public Iterable<Student> getStudentsNotInGroup() {
+        return studentRepository.findByInGroup(false);
+    }
 }

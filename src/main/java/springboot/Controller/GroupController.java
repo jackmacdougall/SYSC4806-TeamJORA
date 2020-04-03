@@ -70,11 +70,23 @@ public class GroupController {
                 }
             }
             else if (o instanceof Instructor){
-                Instructor person = (Instructor) o;
+                model.addAttribute("group", service.getGroupById(groupId));
+                model.addAttribute("students", studentService.getStudentsNotInGroup());
+                return "instructorGroupPage";
             }
         }
         model.addAttribute("groups", service.getAllGroups());
         model.addAttribute("students", studentService.getAllStudents());
         return "groupListPage";
+    }
+
+    @GetMapping(value = "/addtogroup")
+    public String addToGroup(@RequestParam("groupId") Integer groupId, @RequestParam("studentId") Integer studentId, Model model){
+        Group group = service.getGroupById(groupId);
+        Student student = studentService.getById(studentId);
+        service.addStudentToGroup(group, student);
+        model.addAttribute("group", group);
+        model.addAttribute("students", studentService.getStudentsNotInGroup());
+        return "instructorGroupPage";
     }
 }
