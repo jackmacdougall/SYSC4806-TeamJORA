@@ -41,7 +41,8 @@ public class PersonService {
 
     public Boolean isAuthorized() {
         Person person = this.getUser();
-        return (person.getType().equalsIgnoreCase(Person.Type.INSTRUCTOR.toString()));
+
+        return ((person != null) && (person.getType().equalsIgnoreCase(Person.Type.INSTRUCTOR.toString())));
     }
 }
 
