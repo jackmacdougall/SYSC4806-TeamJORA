@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Item List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th> Download Complete </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td> You can find the download in the project root folder </td>
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/item/selectReport}" method="get">
+    <input type="submit" Value="Select Report"/>
+</form>
+</body>
+</html>

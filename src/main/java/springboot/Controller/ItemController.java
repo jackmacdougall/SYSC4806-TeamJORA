@@ -10,6 +10,17 @@ import springboot.Model.PersonRepository;
 import springboot.Service.ResultService;
 import springboot.Service.RubricService;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
+import static org.junit.Assert.assertTrue;
+
 @Controller
 @RequestMapping("/item")
 public class ItemController {
@@ -72,6 +83,40 @@ public class ItemController {
         model.addAttribute("rubric", rubricService.getAllRubrics());
         model.addAttribute("resultService", resultService);
         return "studentReport";
+    }
+
+    @PostMapping(value = "/downloadReport")
+    public String downloadReport (@RequestParam Integer studentID, Model model){
+        List<String []> data = new ArrayList<String []>();
+        Student student = (Student) personService.getPersonById(studentID);
+        data.add(new String[] {"Report for " + student.getName(), "Student ID " + student.getId(), "Group " + student.getGroup()});
+        data.add(new String[] {"Item ID", "Item", "Grade"});
+        for(Item item : service.getAllItems()) {
+            data.add(new String[] {String.valueOf(item.getId()), item.getName(), String.valueOf(student.getAverage(item, resultService))});
+        }
+
+        File csvDownload = new File(student.getName() + " Report "+ ".csv");
+        try (PrintWriter pw = new PrintWriter(csvDownload)) {
+            data.stream().map(this::convertToCSV).forEach(pw::println);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        assertTrue(csvDownload.exists());
+
+        return "downloadComplete";
+    }
+
+    private String convertToCSV(String[] data) {
+        return Stream.of(data).map(this::escapeSpecialCharacters).collect(Collectors.joining(","));
+    }
+
+    private String escapeSpecialCharacters(String data) {
+        String escapedData = data.replaceAll("\\R", " ");
+        if (data.contains(",") || data.contains("\"") || data.contains("\'")) {
+            data = data.replace("\"", "\"\"");
+            escapedData = "\"" + data + "\"";
+        }
+        return escapedData;
     }
 
 }
