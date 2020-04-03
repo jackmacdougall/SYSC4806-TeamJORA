@@ -1,5 +1,7 @@
 package springboot.Model;
 
+import springboot.Service.ResultService;
+
 import javax.persistence.*;
 
 @Entity
@@ -86,5 +88,22 @@ public class Student extends Person {
     }
 
     private void clearInGroup(){this.inGroup = false;}
+
+    public Integer getAverage(Item item, ResultService resultService) {
+        Iterable<Result> results = resultService.getAllResultsByStudent(this);
+        Integer sum = 0;
+        Integer count = 0;
+        for (Result result : results) {
+            Rubric rubric = result.getRubric();
+            if(rubric.getItem().getId() == item.getId()) {
+                count++;
+                if (rubric.getValue() != null) {
+                    sum += rubric.getValue();
+                }
+            }
+        }
+        if (count == 0) { return 0; }
+        return (sum/count);
+    }
 }
 

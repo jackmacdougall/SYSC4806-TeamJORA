@@ -22,12 +22,16 @@ public abstract class Person {
     public Person(String name){
         this.name = name;
         this.isUser = false;
-        type = "Student";
+        type = Type.STUDENT.toString();
     }
 
-    public Person(String name, String type){
+    public Person(String name, String type) {
         this.name = name;
-        this.type = type;
+        if (type.equalsIgnoreCase("instructor")) {
+            this.type = Type.INSTRUCTOR.toString();
+        } else {
+            this.type = Type.STUDENT.toString();
+        }
         this.isUser = false;
     }
 
