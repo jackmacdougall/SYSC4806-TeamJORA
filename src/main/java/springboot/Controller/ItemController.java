@@ -32,12 +32,8 @@ public class ItemController {
 
     @GetMapping(value = "/addItemPage")
     public String addItemPage(@ModelAttribute Item item, Model model) {
-        Boolean authorized = false;
-        Person user = personService.getUser();
-        if (user != null && user.getType().equals("Instructor")){
-            authorized = true;
-        }
-        if(!authorized){ return "unauthorizedUser"; }
+        if(!personService.isAuthorized()){ return "unauthorizedUser"; }
+
         model.addAttribute("item", new Item());
         return "addItemPage";
     }

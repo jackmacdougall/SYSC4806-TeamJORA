@@ -38,6 +38,12 @@ public class PersonService {
         newUser.setAsUser();
         personRepository.save(newUser);
     }
+
+    public Boolean isAuthorized() {
+        Person person = this.getUser();
+
+        return ((person != null) && (person.getType().equalsIgnoreCase(Person.Type.INSTRUCTOR.toString())));
+    }
 }
 
 
