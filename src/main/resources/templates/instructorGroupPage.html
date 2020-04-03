@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Instructor Group Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table id="studentTable">
+    <thead>
+        <tr><th> List of Students </th></tr>
+        <tr><th> ID </th>
+            <th> Name </th></tr>
+    </thead>
+    <tbody>
+    <tr th:if="${students.empty}">
+        <td colspan="3"> No Students </td>
+    </tr>
+    <tr th:each="student : ${students}">
+        <td><span th:text="${student.getId()}"></span></td>
+        <td><span th:text="${student.getName()}"></span></td>
+        <td>
+            <a th:href="@{/group/addtogroup/(groupId=${group.getId()}, studentId=${student.getId()})}"><Button>Add Student To Group</Button></a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<form th:action="@{/}" method="get">
+    <input type="submit" Value="Home Page"/>
+</form>
+</body>
+</html>

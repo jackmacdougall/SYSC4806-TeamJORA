@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Instructor</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+    <form th:action="@{/instructor/add}" th:object="${instructor}" method="post">
+        <p> Enter the new instructor name: <input type="text" th:field="*{name}"/></p>
+        <input type="submit" Value="Add Instructor"/>
+    </form>
+    <form th:action="@{/person/addPersonPage}" method="get">
+        <p><input type="submit" value="Back to Person"/></p>
+    </form>
+    <form th:action="@{/}" method="get">
+        <input type="submit" Value="Back to Home"/>
+    </form>
+</body>
+</html>

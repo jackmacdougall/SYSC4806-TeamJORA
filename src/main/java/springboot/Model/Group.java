@@ -38,8 +38,22 @@ public class Group {
         this.name = name;
     }
 
+//    public List<Student> getStudent(int index){
+//        return students.get(index);
+//    }
+
     public void addStudent(Student student) {
         this.students.add(student);
+    }
+
+    public boolean isStudentInGroup(Student student){
+        for(int i=0; i<this.students.size(); i++){
+            Student temp = this.students.get(i);
+            if(temp.equals(student)){
+                return true;
+            }
+        }
+        return false;
     }
 
 }

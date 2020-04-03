@@ -15,9 +15,13 @@ public class StudentService {
         return studentRepository.findAll();
     }
 
-    public Student getById(Integer id) { return studentRepository.findById(id).get(); }
+    public Student getById(Integer id){
+        return studentRepository.findById(id).get();
+    }
 
-    public void addStudent(Student student){
-        studentRepository.save(student);
+    public void addStudent(Student student){ studentRepository.save(student); }
+
+    public Iterable<Student> getStudentsNotInGroup() {
+        return studentRepository.findByInGroup(false);
     }
 }

@@ -9,4 +9,5 @@ import java.util.List;
 @RepositoryRestResource(collectionResourceRel = "students", path = "students")
 public interface StudentRepository extends CrudRepository<Student, Integer> {
     Student findByName(@Param("name") String name);
+    Iterable<Student> findByInGroup(@Param("inGroup") Boolean inGroup);
 }

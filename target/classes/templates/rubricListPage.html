@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Peer Assessment Tool | Rubric List</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<table id="rubricTable">
+    <thead>
+        <tr>
+            <td>
+                Value
+            </td>
+            <td>
+                Description
+            </td>
+        </tr>
+    </thead>
+    <tbody>
+        <tr th:each="rubric : ${rubric}">
+            <td th:text="${rubric.getValue()}">
+                value
+            </td>
+            <td th:text="${rubric.getDescription()}">
+                description
+            </td>
+<!--            <td th:text="${rubric.getItem().getName()}">-->
+<!--                id-->
+<!--            </td>-->
+        </tr>
+    </tbody>
+    <a th:href="@{/}"><button>Home</button></a>
+</table>
+</body>
+</html>

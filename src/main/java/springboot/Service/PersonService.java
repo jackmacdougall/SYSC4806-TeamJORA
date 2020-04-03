@@ -22,12 +22,13 @@ public class PersonService {
 
     public Person getPersonById(Integer id) { return personRepository.findById(id).get();}
 
-    public Person getUser() { return personRepository.findByIsUser(true);}
+    public Person getUser() { return personRepository.findByIsUserTrue();}
 
     public void clearUser() {
-        if(personRepository.findByIsUser(true) != null) {
-            Person user = personRepository.findByIsUser(true);
+        if(personRepository.findByIsUserTrue() != null) {
+            Person user = personRepository.findByIsUserTrue();
             user.stopBeingUser();
+            personRepository.save(user);
         }
     }
 
@@ -35,6 +36,7 @@ public class PersonService {
         clearUser();
         Person newUser = personRepository.findById(id).get();
         newUser.setAsUser();
+        personRepository.save(newUser);
     }
 }
 
