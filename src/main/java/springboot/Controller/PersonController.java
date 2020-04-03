@@ -25,14 +25,16 @@ public class PersonController {
     @GetMapping(value = "/all")
     public String personListPage(@RequestParam(defaultValue = "-1") Integer user, Model model) {
         model.addAttribute("person", service.getAllPersons());
+        model.addAttribute("currentUser", service.getUser());
         return "personListPage";
     }
 
     @PostMapping(value = "/selectUser")
     public String setPersonAsUser (@RequestParam Integer user, Model model){
         service.setUser(user);
-        model.addAttribute("person", service.getAllPersons());
-        return "personListPage";
+        //model.addAttribute("person", service.getAllPersons());
+        //model.addAttribute("currentUser", service.getUser());
+        return "jorahome";
     }
 
 }

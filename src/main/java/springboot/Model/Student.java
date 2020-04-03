@@ -77,6 +77,10 @@ public class Student extends Person {
         setInGroup();
     }
 
+    public Group getGroup(){
+        return this.group;
+    }
+
     public Boolean isInGroup(){
         return this.inGroup;
     }

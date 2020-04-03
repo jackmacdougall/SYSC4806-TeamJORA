@@ -17,21 +17,14 @@
         <td colspan="2"> No Groups Listed </td>
     </tr>
     <tr th:each="group : ${groups}">
-        <td>
-            <form th:action="@{/group/joingroup}" method="post">
-            <span th:text="${group.name}"> Name </span>
-            <span th:text="${group.getId()}"> ID </span>
-            <span th:text="${group.students.findByName()}"> Students</span>
-<!--            <a th:href="@{(group=${group.getId()})}"><Button>Join Group</Button></a>-->
-            <input type="submit" value="Join Group"/>
-
-            </form>
-        </td>
+            <td><span th:text="${group.name}"> Name </span></td>
+            <td th:each="student : ${students}"
+                th:if="${student.getGroup()} != null and ${student.getGroup()} eq ${group}"
+                th:text="${student.getName()}">Students</td>
+            <td>
+                <a th:href="@{/group/joingroup/(groupId=${group.getId()})}"><Button>Add Student To Group</Button></a>
+            </td>
     </tr>
-    <select>
-        <option th:each="group : ${groups}"
-                th:text="${group.name}"> Name </option>
-    </select>
 
 <!--    <a th:href="@{(group=${group.getId()})}"><Button>Join Group</Button></a>-->
     </tbody>

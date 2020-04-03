@@ -27,11 +27,13 @@ public class GroupController {
 
     private final GroupService service;
     private final PersonService personService;
+    private final StudentService studentService;
 
-    public GroupController(GroupService service, PersonService personService) {
+    public GroupController(GroupService service, PersonService personService, StudentService studentService) {
 
         this.service = service;
         this.personService = personService;
+        this.studentService = studentService;
     }
 
     @GetMapping(value = "/addGroupPage")
@@ -44,6 +46,7 @@ public class GroupController {
     @GetMapping(value = "/all")
     public String groupListPage(Model model){
         model.addAttribute("groups", service.getAllGroups());
+        model.addAttribute("students", studentService.getAllStudents());
         return "groupListPage";
     }
 
@@ -51,17 +54,19 @@ public class GroupController {
     public String addGroup(@ModelAttribute("group") Group group, Model model){
         service.addGroup(group);
         model.addAttribute("groups", service.getAllGroups());
+        model.addAttribute("students", studentService.getAllStudents());
         return "groupListPage";
     }
 
-    @PostMapping(value = "/joingroup")
-    public String joinGroup(@ModelAttribute("group") Group group, Model model){
+    @GetMapping(value = "/joingroup")
+    public String joinGroup(@RequestParam("groupId") Integer groupId, Model model){
+        Group group = service.getGroupById(groupId);
         Object o = personService.getUser();
         if(o != null) {
             if (o instanceof Student) {
                 Student person = (Student) o;
                 if(!group.isStudentInGroup(person)) {
-                    group.addStudent(person);
+                    service.addStudentToGroup(group, person);
                 }
             }
             else if (o instanceof Instructor){
@@ -69,6 +74,7 @@ public class GroupController {
             }
         }
         model.addAttribute("groups", service.getAllGroups());
+        model.addAttribute("students", studentService.getAllStudents());
         return "groupListPage";
     }
 }
